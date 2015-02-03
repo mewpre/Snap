@@ -10,7 +10,7 @@
 		60C5ECB71A818DA6009332BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECB61A818DA6009332BB /* main.m */; };
 		60C5ECBA1A818DA6009332BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECB91A818DA6009332BB /* AppDelegate.m */; };
 		60C5ECBD1A818DA6009332BB /* Snap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECBB1A818DA6009332BB /* Snap.xcdatamodeld */; };
-		60C5ECC01A818DA6009332BB /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECBF1A818DA6009332BB /* ViewController.m */; };
+		60C5ECC01A818DA6009332BB /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECBF1A818DA6009332BB /* PhotoViewController.m */; };
 		60C5ECC31A818DA6009332BB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60C5ECC11A818DA6009332BB /* Main.storyboard */; };
 		60C5ECC51A818DA6009332BB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 60C5ECC41A818DA6009332BB /* Images.xcassets */; };
 		60C5ECC81A818DA6009332BB /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 60C5ECC61A818DA6009332BB /* LaunchScreen.xib */; };
@@ -28,6 +28,11 @@
 		60C5ECF21A8190DF009332BB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C5ECF11A8190DF009332BB /* SystemConfiguration.framework */; };
 		60C5ECF41A8190E9009332BB /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C5ECF31A8190E9009332BB /* libz.dylib */; };
 		60C5ECF61A819102009332BB /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C5ECF51A819102009332BB /* libsqlite3.dylib */; };
+		60C5ECFA1A8193FF009332BB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECF91A8193FF009332BB /* SearchViewController.m */; };
+		60C5ECFE1A819431009332BB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECFD1A819431009332BB /* CameraViewController.m */; };
+		60C5ED011A819443009332BB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED001A819443009332BB /* ProfileViewController.m */; };
+		60C5ED041A819455009332BB /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED031A819455009332BB /* UploadViewController.m */; };
+		60C5ED071A819466009332BB /* UploadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED061A819466009332BB /* UploadDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,8 +52,8 @@
 		60C5ECB81A818DA6009332BB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		60C5ECB91A818DA6009332BB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		60C5ECBC1A818DA6009332BB /* Snap.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Snap.xcdatamodel; sourceTree = "<group>"; };
-		60C5ECBE1A818DA6009332BB /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		60C5ECBF1A818DA6009332BB /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		60C5ECBE1A818DA6009332BB /* PhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		60C5ECBF1A818DA6009332BB /* PhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		60C5ECC21A818DA6009332BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		60C5ECC41A818DA6009332BB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		60C5ECC71A818DA6009332BB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -68,6 +73,16 @@
 		60C5ECF11A8190DF009332BB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		60C5ECF31A8190E9009332BB /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		60C5ECF51A819102009332BB /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		60C5ECF81A8193FF009332BB /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		60C5ECF91A8193FF009332BB /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		60C5ECFC1A819431009332BB /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		60C5ECFD1A819431009332BB /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		60C5ECFF1A819443009332BB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		60C5ED001A819443009332BB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		60C5ED021A819455009332BB /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
+		60C5ED031A819455009332BB /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
+		60C5ED051A819466009332BB /* UploadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDetailViewController.h; sourceTree = "<group>"; };
+		60C5ED061A819466009332BB /* UploadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadDetailViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +140,8 @@
 			children = (
 				60C5ECB81A818DA6009332BB /* AppDelegate.h */,
 				60C5ECB91A818DA6009332BB /* AppDelegate.m */,
-				60C5ECBE1A818DA6009332BB /* ViewController.h */,
-				60C5ECBF1A818DA6009332BB /* ViewController.m */,
-				60C5ECC11A818DA6009332BB /* Main.storyboard */,
+				60C5ED081A81946B009332BB /* View Controllers */,
+				60C5ECFB1A819409009332BB /* Storyboard */,
 				60C5ECC41A818DA6009332BB /* Images.xcassets */,
 				60C5ECC61A818DA6009332BB /* LaunchScreen.xib */,
 				60C5ECBB1A818DA6009332BB /* Snap.xcdatamodeld */,
@@ -180,6 +194,33 @@
 				60C5ECDD1A818FF2009332BB /* Parse.framework */,
 			);
 			name = Frameworks/SDKs;
+			sourceTree = "<group>";
+		};
+		60C5ECFB1A819409009332BB /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				60C5ECC11A818DA6009332BB /* Main.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		60C5ED081A81946B009332BB /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				60C5ECBE1A818DA6009332BB /* PhotoViewController.h */,
+				60C5ECBF1A818DA6009332BB /* PhotoViewController.m */,
+				60C5ECF81A8193FF009332BB /* SearchViewController.h */,
+				60C5ECF91A8193FF009332BB /* SearchViewController.m */,
+				60C5ECFC1A819431009332BB /* CameraViewController.h */,
+				60C5ECFD1A819431009332BB /* CameraViewController.m */,
+				60C5ECFF1A819443009332BB /* ProfileViewController.h */,
+				60C5ED001A819443009332BB /* ProfileViewController.m */,
+				60C5ED021A819455009332BB /* UploadViewController.h */,
+				60C5ED031A819455009332BB /* UploadViewController.m */,
+				60C5ED051A819466009332BB /* UploadDetailViewController.h */,
+				60C5ED061A819466009332BB /* UploadDetailViewController.m */,
+			);
+			name = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -282,9 +323,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C5ED071A819466009332BB /* UploadDetailViewController.m in Sources */,
 				60C5ECBA1A818DA6009332BB /* AppDelegate.m in Sources */,
 				60C5ECBD1A818DA6009332BB /* Snap.xcdatamodeld in Sources */,
-				60C5ECC01A818DA6009332BB /* ViewController.m in Sources */,
+				60C5ECFA1A8193FF009332BB /* SearchViewController.m in Sources */,
+				60C5ECFE1A819431009332BB /* CameraViewController.m in Sources */,
+				60C5ED011A819443009332BB /* ProfileViewController.m in Sources */,
+				60C5ED041A819455009332BB /* UploadViewController.m in Sources */,
+				60C5ECC01A818DA6009332BB /* PhotoViewController.m in Sources */,
 				60C5ECB71A818DA6009332BB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

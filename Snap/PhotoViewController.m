@@ -6,14 +6,14 @@
 //  Copyright (c) 2015 Yi-Chin Sun. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "PhotoViewController.h"
 #import <Parse/Parse.h>
 
-@interface ViewController ()
+@interface PhotoViewController ()
 
 @end
 
-@implementation ViewController
+@implementation PhotoViewController
 
 - (void)viewDidLoad
 {

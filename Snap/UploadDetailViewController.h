@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  UploadDetailViewController.h
 //  Snap
 //
 //  Created by Yi-Chin Sun on 2/3/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface UploadDetailViewController : UIViewController
 
 @end
-
