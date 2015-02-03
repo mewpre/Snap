@@ -10,6 +10,5 @@
 
 @interface PhotoViewController : UIViewController
 
-
 @end
 

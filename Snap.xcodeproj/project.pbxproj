@@ -190,8 +190,7 @@
 				60C5ECE51A8190B3009332BB /* CoreGraphics.framework */,
 				60C5ECE31A8190AD009332BB /* CFNetwork.framework */,
 				60C5ECE11A8190A8009332BB /* AudioToolbox.framework */,
-				60C5ECDF1A818FFA009332BB /* Bolts.framework */,
-				60C5ECDD1A818FF2009332BB /* Parse.framework */,
+				60C5ED091A819662009332BB /* Parse Frameworks */,
 			);
 			name = Frameworks/SDKs;
 			sourceTree = "<group>";
@@ -221,6 +220,15 @@
 				60C5ED061A819466009332BB /* UploadDetailViewController.m */,
 			);
 			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		60C5ED091A819662009332BB /* Parse Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60C5ECDF1A818FFA009332BB /* Bolts.framework */,
+				60C5ECDD1A818FF2009332BB /* Parse.framework */,
+			);
+			name = "Parse Frameworks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
