@@ -12,8 +12,9 @@
 
 @property (retain) NSString *objectID;
 @property (retain) NSString *text;
-@property (retain) NSDate *createdAt; // Right format????   ***
+//@property (retain) NSDate *createdAt; // Right format????   ***
 @property (retain) UIImage *profileImage;
+@property (retain) NSDate *timeStamp;
 
 @property (retain) PFRelation *user;
 @property (retain) PFRelation *photo;

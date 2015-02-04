@@ -13,8 +13,9 @@
 @property (retain) NSString *objectID;
 //@property (retain) NSString *locationStamp;  // WHAT FORMAT???
 @property (retain) NSString *caption;
-@property (retain) NSDate *createdAt; // Correct format???    ***
-@property (retain) NSDate *updatedAt; // Correct format???    ***
+//@property (retain) NSDate *createdAt; // Correct format???    ***
+//@property (retain) NSDate *updatedAt; // Correct format???    ***
+@property (retain) NSDate *timeStamp;
 
 @property (retain) PFRelation *user;
 @property (retain) PFRelation *usersWhoLike;

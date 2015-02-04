@@ -12,8 +12,12 @@
 
 @dynamic objectID;
 @dynamic text;
-@dynamic createdAt;
+//@dynamic createdAt;
 @dynamic profileImage;
+@dynamic timeStamp;
+
+@dynamic user;
+@dynamic photo;
 
 + (void)load
 {

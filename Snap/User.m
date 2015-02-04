@@ -14,6 +14,13 @@
 @dynamic username;
 @dynamic password;
 @dynamic profileImage;
+@dynamic timeStamp;
+
+@dynamic followers;
+@dynamic usersFollowing;
+@dynamic photos;
+@dynamic comments;
+@dynamic likes;
 
 + (void)load
 {

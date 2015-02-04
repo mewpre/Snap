@@ -11,9 +11,16 @@
 @implementation Photo
 
 @dynamic objectID;
+//@dynamic locationStamp;
 @dynamic caption;
 @dynamic createdAt;
-@dynamic updatedAt;
+//@dynamic updatedAt;
+@dynamic timeStamp;
+
+@dynamic user;
+@dynamic usersWhoLike;
+@dynamic comments;
+@dynamic hashtags;
 
 + (void)load
 {
