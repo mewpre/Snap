@@ -10,6 +10,7 @@
 
 @implementation User
 
+@dynamic objectID;
 @dynamic username;
 @dynamic password;
 @dynamic profileImage;
@@ -21,7 +22,22 @@
 
 + (NSString *)parseClassName
 {
-    return @"Armor";
+    return @"User";
 }
+
+//- (void) setLikes:(PFRelation *)likes
+//{
+//    _likes = likes;
+//}
+//
+//
+//- (PFRelation *) likes
+//{
+//    if(_likes== nil)
+//    {
+//        _likes = [self relationforKey:@"likes"];
+//    }
+//    return _likes;
+//}
 
 @end
