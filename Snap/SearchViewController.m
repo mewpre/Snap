@@ -10,6 +10,7 @@
 
 @interface SearchViewController ()
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @end
 

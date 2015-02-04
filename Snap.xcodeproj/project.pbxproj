@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FFF6CFF1A81A9F100B02AC5 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FFF6CFE1A81A9F100B02AC5 /* User.m */; };
 		60C5ECB71A818DA6009332BB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECB61A818DA6009332BB /* main.m */; };
 		60C5ECBA1A818DA6009332BB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECB91A818DA6009332BB /* AppDelegate.m */; };
 		60C5ECBD1A818DA6009332BB /* Snap.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECBB1A818DA6009332BB /* Snap.xcdatamodeld */; };
@@ -48,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FFF6CFD1A81A9F100B02AC5 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		0FFF6CFE1A81A9F100B02AC5 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		60C5ECB11A818DA6009332BB /* Snap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60C5ECB51A818DA6009332BB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		60C5ECB61A818DA6009332BB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 				60C5ED081A81946B009332BB /* View Controllers */,
 				60C5ECFB1A819409009332BB /* Storyboard */,
 				60C5ECC41A818DA6009332BB /* Images.xcassets */,
+				0FFF6CFD1A81A9F100B02AC5 /* User.h */,
+				0FFF6CFE1A81A9F100B02AC5 /* User.m */,
 				60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */,
 				60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */,
 				60C5ED0D1A81B410009332BB /* ImageCollectionViewCell.h */,
@@ -347,6 +352,7 @@
 				60C5ED0C1A819A1A009332BB /* DynamicTableViewCell.m in Sources */,
 				60C5ECFA1A8193FF009332BB /* SearchViewController.m in Sources */,
 				60C5ECFE1A819431009332BB /* CameraViewController.m in Sources */,
+				0FFF6CFF1A81A9F100B02AC5 /* User.m in Sources */,
 				60C5ED011A819443009332BB /* ProfileViewController.m in Sources */,
 				60C5ED041A819455009332BB /* UploadViewController.m in Sources */,
 				60C5ED0F1A81B410009332BB /* ImageCollectionViewCell.m in Sources */,

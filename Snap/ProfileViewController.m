@@ -16,6 +16,8 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UIImageView *profileImageView;
 
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end
 
 @implementation ProfileViewController

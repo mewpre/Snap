@@ -67,7 +67,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="d9i-OF-I8B" customClass="ImageCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="d9i-OF-I8B">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -98,7 +98,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="WdK-4B-B53"/>
                     <connections>
-                        <outlet property="segmentedControl" destination="5vw-lD-N2t" id="omw-Zj-CMs"/>
+                        <outlet property="collectionView" destination="jOE-F1-xEl" id="G62-md-p33"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Tq-Va-HSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -203,7 +203,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="cac-wk-jMg" customClass="ImageCollectionViewCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="cac-wk-jMg">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -241,12 +241,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="YTu-Jy-5xQ"/>
                     <connections>
-                        <outlet property="collectionView" destination="Lfd-q9-dNZ" id="TkT-Qv-Ecq"/>
-                        <outlet property="followersLabel" destination="BPU-Bb-9MQ" id="iog-0e-NBE"/>
-                        <outlet property="following" destination="kiu-SA-bMv" id="zhT-G1-FtJ"/>
-                        <outlet property="profileImageView" destination="YNf-sn-KLd" id="gHq-LC-seU"/>
-                        <outlet property="segmentedControl" destination="YQf-yX-mX8" id="I16-7y-qXE"/>
-                        <outlet property="usernameLabel" destination="CKl-ll-CpG" id="0Vb-Ge-HIB"/>
+                        <outlet property="collectionView" destination="Lfd-q9-dNZ" id="mG2-yK-O5e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIj-Ql-OMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
