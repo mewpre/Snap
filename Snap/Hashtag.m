@@ -10,11 +10,11 @@
 
 @implementation Hashtag
 
-@dynamic objectID;
+//@dynamic objectID;
 @dynamic text;
 //@dynamic createdAt;
 //@dynamic updatedAt;
-@dynamic timeStamp;
+//@dynamic timeStamp;
 
 @dynamic photos;
 

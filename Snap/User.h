@@ -10,11 +10,11 @@
 
 @interface User : PFObject<PFSubclassing>
 
-@property (retain) NSString *objectID;
+//@property (retain) NSString *objectID;
 @property (retain) NSString *username;
-@property (retain) NSString *password;
+//@property (retain) NSString *password;
 @property (retain) UIImage *profileImage;
-@property (retain) NSDate *timeStamp;
+//@property (retain) NSDate *timeStamp;
 
 @property (retain) PFRelation *followers;
 @property (retain) PFRelation *usersFollowing;

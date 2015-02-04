@@ -10,11 +10,11 @@
 
 @implementation User
 
-@dynamic objectID;
+//@dynamic objectID;
 @dynamic username;
-@dynamic password;
+//@dynamic password;
 @dynamic profileImage;
-@dynamic timeStamp;
+//@dynamic timeStamp;
 
 @dynamic followers;
 @dynamic usersFollowing;

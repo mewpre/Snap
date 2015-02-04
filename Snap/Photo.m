@@ -10,12 +10,12 @@
 
 @implementation Photo
 
-@dynamic objectID;
+//@dynamic objectID;
 //@dynamic locationStamp;
 @dynamic caption;
-@dynamic createdAt;
+//@dynamic createdAt;
 //@dynamic updatedAt;
-@dynamic timeStamp;
+//@dynamic timeStamp;
 
 @dynamic user;
 @dynamic usersWhoLike;
