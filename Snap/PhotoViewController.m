@@ -8,8 +8,11 @@
 
 #import "PhotoViewController.h"
 #import <Parse/Parse.h>
+#import "DynamicTableViewCell.h"
 
-@interface PhotoViewController ()
+@interface PhotoViewController () <UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -24,6 +27,17 @@
 //    testObject[@"foo"] = @"bar";
 //    [testObject saveInBackground];
 //    NSLog(@"Test test test");
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
 }
 
 @end

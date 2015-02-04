@@ -33,6 +33,7 @@
 		60C5ED011A819443009332BB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED001A819443009332BB /* ProfileViewController.m */; };
 		60C5ED041A819455009332BB /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED031A819455009332BB /* UploadViewController.m */; };
 		60C5ED071A819466009332BB /* UploadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED061A819466009332BB /* UploadDetailViewController.m */; };
+		60C5ED0C1A819A1A009332BB /* DynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		60C5ED031A819455009332BB /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		60C5ED051A819466009332BB /* UploadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDetailViewController.h; sourceTree = "<group>"; };
 		60C5ED061A819466009332BB /* UploadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadDetailViewController.m; sourceTree = "<group>"; };
+		60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewCell.h; sourceTree = "<group>"; };
+		60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +146,8 @@
 				60C5ED081A81946B009332BB /* View Controllers */,
 				60C5ECFB1A819409009332BB /* Storyboard */,
 				60C5ECC41A818DA6009332BB /* Images.xcassets */,
+				60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */,
+				60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */,
 				60C5ECC61A818DA6009332BB /* LaunchScreen.xib */,
 				60C5ECBB1A818DA6009332BB /* Snap.xcdatamodeld */,
 				60C5ECB41A818DA6009332BB /* Supporting Files */,
@@ -334,6 +339,7 @@
 				60C5ED071A819466009332BB /* UploadDetailViewController.m in Sources */,
 				60C5ECBA1A818DA6009332BB /* AppDelegate.m in Sources */,
 				60C5ECBD1A818DA6009332BB /* Snap.xcdatamodeld in Sources */,
+				60C5ED0C1A819A1A009332BB /* DynamicTableViewCell.m in Sources */,
 				60C5ECFA1A8193FF009332BB /* SearchViewController.m in Sources */,
 				60C5ECFE1A819431009332BB /* CameraViewController.m in Sources */,
 				60C5ED011A819443009332BB /* ProfileViewController.m in Sources */,
@@ -538,6 +544,7 @@
 				60C5ECD91A818DA6009332BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		60C5ECDA1A818DA6009332BB /* Build configuration list for PBXNativeTarget "SnapTests" */ = {
 			isa = XCConfigurationList;
@@ -546,6 +553,7 @@
 				60C5ECDC1A818DA6009332BB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
