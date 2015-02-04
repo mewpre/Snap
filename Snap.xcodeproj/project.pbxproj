@@ -137,8 +137,8 @@
 		60C5ECA81A818DA5009332BB = {
 			isa = PBXGroup;
 			children = (
-				60C5ECF71A819126009332BB /* Frameworks/SDKs */,
 				60C5ECB31A818DA6009332BB /* Snap */,
+				60C5ECF71A819126009332BB /* Frameworks/SDKs */,
 				60C5ECD01A818DA6009332BB /* SnapTests */,
 				60C5ECB21A818DA6009332BB /* Products */,
 			);
