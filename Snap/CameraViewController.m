@@ -7,8 +7,10 @@
 //
 
 #import "CameraViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
-@interface CameraViewController ()
+@interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
 
@@ -22,6 +24,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)onTakePictureButtonTapped:(id)sender
+{
+}
+
+- (IBAction)onSelectPictureButtonTapped:(id)sender
+{
 }
 
 /*
