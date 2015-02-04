@@ -217,6 +217,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" id="YTu-Jy-5xQ"/>
+                    <connections>
+                        <outlet property="collectionView" destination="Lfd-q9-dNZ" id="mG2-yK-O5e"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIj-Ql-OMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

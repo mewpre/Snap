@@ -10,6 +10,8 @@
 
 @interface ProfileViewController ()
 
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @end
 
 @implementation ProfileViewController

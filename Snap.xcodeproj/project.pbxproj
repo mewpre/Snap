@@ -149,6 +149,8 @@
 				60C5ED081A81946B009332BB /* View Controllers */,
 				60C5ECFB1A819409009332BB /* Storyboard */,
 				60C5ECC41A818DA6009332BB /* Images.xcassets */,
+				0FFF6CFD1A81A9F100B02AC5 /* User.h */,
+				0FFF6CFE1A81A9F100B02AC5 /* User.m */,
 				60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */,
 				60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */,
 				60C5ECC61A818DA6009332BB /* LaunchScreen.xib */,
@@ -226,8 +228,6 @@
 				60C5ED031A819455009332BB /* UploadViewController.m */,
 				60C5ED051A819466009332BB /* UploadDetailViewController.h */,
 				60C5ED061A819466009332BB /* UploadDetailViewController.m */,
-				0FFF6CFD1A81A9F100B02AC5 /* User.h */,
-				0FFF6CFE1A81A9F100B02AC5 /* User.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
