@@ -161,18 +161,8 @@
 				60C5ED081A81946B009332BB /* View Controllers */,
 				60C5ECFB1A819409009332BB /* Storyboard */,
 				60C5ECC41A818DA6009332BB /* Images.xcassets */,
-				0FFF6CFD1A81A9F100B02AC5 /* User.h */,
-				0FFF6CFE1A81A9F100B02AC5 /* User.m */,
-				0FC974641A81FF3900E02C40 /* Comment.h */,
-				0FC974651A81FF3900E02C40 /* Comment.m */,
-				0FC974671A81FF4B00E02C40 /* Photo.h */,
-				0FC974681A81FF4B00E02C40 /* Photo.m */,
-				0FC9746A1A82003200E02C40 /* Hashtag.h */,
-				0FC9746B1A82003200E02C40 /* Hashtag.m */,
-				60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */,
-				60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */,
-				60C5ED0D1A81B410009332BB /* ImageCollectionViewCell.h */,
-				60C5ED0E1A81B410009332BB /* ImageCollectionViewCell.m */,
+				60C5ED101A828FD0009332BB /* Data Models */,
+				60C5ED111A828FDB009332BB /* Custom Cell Classes */,
 				60C5ECC61A818DA6009332BB /* LaunchScreen.xib */,
 				60C5ECBB1A818DA6009332BB /* Snap.xcdatamodeld */,
 				60C5ECB41A818DA6009332BB /* Supporting Files */,
@@ -259,6 +249,32 @@
 				60C5ECDD1A818FF2009332BB /* Parse.framework */,
 			);
 			name = "Parse Frameworks";
+			sourceTree = "<group>";
+		};
+		60C5ED101A828FD0009332BB /* Data Models */ = {
+			isa = PBXGroup;
+			children = (
+				0FFF6CFD1A81A9F100B02AC5 /* User.h */,
+				0FFF6CFE1A81A9F100B02AC5 /* User.m */,
+				0FC974641A81FF3900E02C40 /* Comment.h */,
+				0FC974651A81FF3900E02C40 /* Comment.m */,
+				0FC974671A81FF4B00E02C40 /* Photo.h */,
+				0FC974681A81FF4B00E02C40 /* Photo.m */,
+				0FC9746A1A82003200E02C40 /* Hashtag.h */,
+				0FC9746B1A82003200E02C40 /* Hashtag.m */,
+			);
+			name = "Data Models";
+			sourceTree = "<group>";
+		};
+		60C5ED111A828FDB009332BB /* Custom Cell Classes */ = {
+			isa = PBXGroup;
+			children = (
+				60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */,
+				60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */,
+				60C5ED0D1A81B410009332BB /* ImageCollectionViewCell.h */,
+				60C5ED0E1A81B410009332BB /* ImageCollectionViewCell.m */,
+			);
+			name = "Custom Cell Classes";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
