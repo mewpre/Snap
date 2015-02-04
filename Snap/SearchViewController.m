@@ -8,9 +8,10 @@
 
 #import "SearchViewController.h"
 
-@interface SearchViewController ()
+@interface SearchViewController () <UISearchBarDelegate>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
