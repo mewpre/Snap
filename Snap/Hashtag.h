@@ -10,10 +10,11 @@
 
 @interface Hashtag : PFObject
 
-@property (retain) NSString *objectID;
+//@property (retain) NSString *objectID;
 @property (retain) NSString *text;
-@property (retain) NSDate *createdAt; // Correct format???    ***
-@property (retain) NSDate *updatedAt; // Correct format???    ***
+//@property (retain) NSDate *createdAt; // Correct format???    ***
+//@property (retain) NSDate *updatedAt; // Correct format???    ***
+//@property (retain) NSDate *timeStamp;
 
 @property (retain) PFRelation *photos;
 
