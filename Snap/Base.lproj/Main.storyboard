@@ -99,6 +99,8 @@
                     <tabBarItem key="tabBarItem" title="Search" id="WdK-4B-B53"/>
                     <connections>
                         <outlet property="collectionView" destination="jOE-F1-xEl" id="G62-md-p33"/>
+                        <outlet property="searchBar" destination="Q5W-xO-5Lj" id="Xft-5K-Nuc"/>
+                        <outlet property="segmentedControl" destination="5vw-lD-N2t" id="nfa-B2-GXR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Tq-Va-HSb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -242,6 +244,11 @@
                     <tabBarItem key="tabBarItem" title="Profile" id="YTu-Jy-5xQ"/>
                     <connections>
                         <outlet property="collectionView" destination="Lfd-q9-dNZ" id="mG2-yK-O5e"/>
+                        <outlet property="followersLabel" destination="BPU-Bb-9MQ" id="vyx-Ws-YIr"/>
+                        <outlet property="following" destination="kiu-SA-bMv" id="Gt3-TL-1c2"/>
+                        <outlet property="profileImageView" destination="YNf-sn-KLd" id="lOV-5L-zBo"/>
+                        <outlet property="segmentedControl" destination="s2P-CM-g83" id="YMc-ok-OtB"/>
+                        <outlet property="usernameLabel" destination="CKl-ll-CpG" id="5MI-y2-1aq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIj-Ql-OMA" userLabel="First Responder" sceneMemberID="firstResponder"/>

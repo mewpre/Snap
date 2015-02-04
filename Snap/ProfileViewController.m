@@ -9,7 +9,7 @@
 #import "ProfileViewController.h"
 
 @interface ProfileViewController ()
-@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followersLabel;
 @property (strong, nonatomic) IBOutlet UILabel *following;
