@@ -28,4 +28,6 @@
 
 + (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete;
 
++ (NSArray *)retrievePhotosOfUser:(NSString *)searchTerm;
+
 @end

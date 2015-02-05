@@ -336,9 +336,11 @@
 				TargetAttributes = {
 					60C5ECB01A818DA5009332BB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PXJ4T2K4N5;
 					};
 					60C5ECCC1A818DA6009332BB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PXJ4T2K4N5;
 						TestTargetID = 60C5ECB01A818DA5009332BB;
 					};
 				};
@@ -551,6 +553,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -562,6 +566,7 @@
 				INFOPLIST_FILE = SnapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snap.app/Snap";
 			};
 			name = Debug;
@@ -570,6 +575,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -577,6 +584,7 @@
 				INFOPLIST_FILE = SnapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snap.app/Snap";
 			};
 			name = Release;

@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import <Parse/Parse.h>
 
 @interface SearchViewController () <UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
@@ -36,6 +37,19 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return 0;
+}
+
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+    if (self.segmentedControl.selectedSegmentIndex == 0)
+    {
+        //hashtag search
+    }
+    else
+    {
+        //user search
+    }
 }
 
 @end
