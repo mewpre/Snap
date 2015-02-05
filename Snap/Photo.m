@@ -24,7 +24,7 @@
 @dynamic hashtags;
 
 
-+ (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete
+- (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete
 {
     [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
      {
@@ -45,6 +45,19 @@
          }
          complete(error);
      }];
+}
+
+- (void)savePhotoWithImage:(UIImage *)image withUser:(User *)user {
+    
+//    Photo *currentPhoto = [Photo new];
+    NSData *imageData = UIImagePNGRepresentation(image);
+    PFFile *file = [PFFile fileWithData:imageData];
+    self.imageFile = file;
+    [self saveInBackground];
+    [user addObject:self forKey:@"photos"];
+    [user saveInBackground];
+
+//    [User.currentUser savePhotoWithData:mageData];
 }
 
 
