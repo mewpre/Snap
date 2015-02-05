@@ -39,6 +39,7 @@
 		60C5ED071A819466009332BB /* UploadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED061A819466009332BB /* UploadDetailViewController.m */; };
 		60C5ED0C1A819A1A009332BB /* DynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */; };
 		60C5ED0F1A81B410009332BB /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED0E1A81B410009332BB /* ImageCollectionViewCell.m */; };
+		60C5ED471A82E502009332BB /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60C5ED461A82E502009332BB /* CoreMedia.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,10 @@
 		60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DynamicTableViewCell.m; sourceTree = "<group>"; };
 		60C5ED0D1A81B410009332BB /* ImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCollectionViewCell.h; sourceTree = "<group>"; };
 		60C5ED0E1A81B410009332BB /* ImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCollectionViewCell.m; sourceTree = "<group>"; };
+		60C5ED421A82D366009332BB /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		60C5ED441A82E4F5009332BB /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		60C5ED461A82E502009332BB /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		60C5ED481A82E587009332BB /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60C5ED471A82E502009332BB /* CoreMedia.framework in Frameworks */,
 				60C5ECF61A819102009332BB /* libsqlite3.dylib in Frameworks */,
 				60C5ECF41A8190E9009332BB /* libz.dylib in Frameworks */,
 				60C5ECF21A8190DF009332BB /* SystemConfiguration.framework in Frameworks */,
@@ -199,6 +205,10 @@
 		60C5ECF71A819126009332BB /* Frameworks/SDKs */ = {
 			isa = PBXGroup;
 			children = (
+				60C5ED481A82E587009332BB /* ImageIO.framework */,
+				60C5ED461A82E502009332BB /* CoreMedia.framework */,
+				60C5ED441A82E4F5009332BB /* CoreVideo.framework */,
+				60C5ED421A82D366009332BB /* AVFoundation.framework */,
 				60C5ECF51A819102009332BB /* libsqlite3.dylib */,
 				60C5ECF31A8190E9009332BB /* libz.dylib */,
 				60C5ECF11A8190DF009332BB /* SystemConfiguration.framework */,
