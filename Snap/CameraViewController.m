@@ -7,8 +7,12 @@
 //
 
 #import "CameraViewController.h"
+#import <Parse/Parse.h>
+#import "Photo.h"
 
 @interface CameraViewController ()
+
+@property UITextField *captionTextField;
 
 @end
 
@@ -24,14 +28,30 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)postPictureButtonPressed {
+    Photo *photo;
+    photo.caption = self.captionTextField.text;
+    
+//    photo[@"user"] = currentUser;
+    
 }
-*/
+
+- (void)convertImageToPFFile {
+    
+    UIImage *image =///
+    UIImageView *imageView = image;
+    NSData *imageData = UIImagePNGRepresentation(imageView.image);
+    
+    [file saveInBackground];
+    
+    
+    
+    
+//    PFFile *theImage = [object objectForKey:@"image"];
+//    NSData *imageData = [theImage getData];
+//    UIImage *image = [UIImage imageWithData:imageData];
+//    UIImageView *imageCell = (UIImageView *)[cell viewWithTag:105];
+//    imageCell.image =image;
+}
 
 @end
