@@ -10,5 +10,7 @@
 
 @interface PhotoViewController : UIViewController
 
++(void)myMethodWithCompletionBlock:(void(^)(NSString *errorMessage))completionBlock;
+
 @end
 

@@ -13,8 +13,9 @@
 //@property (retain) NSString *objectID;
 //@property (retain) NSString *locationStamp;  // WHAT FORMAT???
 @property (retain) NSString *caption;
-//@property (retain) NSDate *createdAt; // Correct format???    ***
-//@property (retain) NSDate *updatedAt; // Correct format???    ***
+@property (retain) PFFile *imageFile;
+//@property (retain) NSDate *createdAt;
+//@property (retain) NSDate *updatedAt;
 //@property (retain) NSDate *timeStamp;
 
 @property (retain) PFRelation *user;

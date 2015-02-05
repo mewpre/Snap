@@ -16,6 +16,7 @@
 //@dynamic createdAt;
 //@dynamic updatedAt;
 //@dynamic timeStamp;
+@dynamic imageFile;
 
 @dynamic user;
 @dynamic usersWhoLike;

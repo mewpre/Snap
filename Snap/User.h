@@ -8,10 +8,10 @@
 
 #import <Parse/Parse.h>
 
-@interface User : PFObject<PFSubclassing>
+@interface User : PFUser<PFSubclassing>
 
 //@property (retain) NSString *objectID;
-@property (retain) NSString *username;
+//@property (retain) NSString *username;
 //@property (retain) NSString *password;
 @property (retain) UIImage *profileImage;
 //@property (retain) NSDate *timeStamp;
@@ -23,5 +23,9 @@
 @property (retain) PFRelation *likes;
 
 + (NSString *)parseClassName;
+
++ (void)signUpWithUsername:(NSString *)username Password:(NSString *)password AndEmail:(NSString *)email AndCompletion:(void(^)(NSError *error))complete;
++(void)loginWithUsername:(NSString *)username AndPassword:(NSString *)password WithCompletionBlock:(void(^)(NSError *error))complete;
+
 
 @end
