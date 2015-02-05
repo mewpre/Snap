@@ -165,9 +165,35 @@
                     <view key="view" contentMode="scaleToFill" id="w0J-UH-TKB">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-EU-Vy6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="378"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KV-QQ-JHu">
+                                <rect key="frame" x="252" y="462" width="96" height="30"/>
+                                <state key="normal" title="Select Picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSelectPictureButtonTapped:" destination="gft-1H-Zf1" eventType="touchUpInside" id="fIo-4K-uWL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-mm-Ca6">
+                                <rect key="frame" x="258" y="406" width="84" height="30"/>
+                                <state key="normal" title="Take Picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onTakePictureButtonTapped:" destination="gft-1H-Zf1" eventType="touchUpInside" id="k7a-gE-RbY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="GBF-uV-JEc"/>
+                    <connections>
+                        <outlet property="imageView" destination="ocr-EU-Vy6" id="XDn-dT-LeG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrD-eo-XRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,9 +211,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNf-sn-KLd">
-                                <rect key="frame" x="98" y="38" width="173" height="176"/>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-ll-CpG">
                                 <rect key="frame" x="340" y="52" width="76" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -253,6 +276,9 @@
                                     <segment title="likes"/>
                                 </segments>
                             </segmentedControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YNf-sn-KLd">
+                                <rect key="frame" x="98" y="38" width="173" height="176"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

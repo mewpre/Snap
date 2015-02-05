@@ -11,6 +11,7 @@
 
 @interface ProfileViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
+
 @property (strong, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *followersLabel;
 @property (strong, nonatomic) IBOutlet UILabel *following;
@@ -43,7 +44,6 @@
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     return cell;
 }
-
 /*
 #pragma mark - Navigation
 

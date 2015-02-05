@@ -9,6 +9,8 @@
 #import "PhotoViewController.h"
 #import <Parse/Parse.h>
 #import "DynamicTableViewCell.h"
+#import "User.h"
+#import "Photo.h"
 
 @interface PhotoViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -21,13 +23,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [User load];
 
-// Code to test Parse connection. It works!
-//    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
-//    testObject[@"foo"] = @"bar";
-//    [testObject saveInBackground];
-//    NSLog(@"Test test test");
+    User *currentUser = [User currentUser];
+
+    // User sign up
+    [User signUpWithUsername:@"chgiersch" password:@"password" email:@"chgiersch@gmail.com" withCompletion:^(NSError *error)
+     {
+         if (error)
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+
+
+    // Create and save photo to current user
+    Photo *photo = (Photo *)[PFObject objectWithClassName:@"Photo"];
+    photo.caption = @"Photo 1";
+    [Photo savePhoto:photo withUser:currentUser withCompletion:^(NSError *error)
+     {
+
+     }];
+
+
+    // Get most recent photos from current user
+    [User retrieveRecent48HourPhotosFromUser:currentUser withCompletion:^(NSArray *photosArray)
+     {
+         Photo *photo1 = photosArray.firstObject;
+         NSLog(@"%@", photo1.caption);
+     }];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

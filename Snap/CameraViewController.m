@@ -10,7 +10,9 @@
 #import <Parse/Parse.h>
 #import "Photo.h"
 
-@interface CameraViewController ()
+
+@interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @property UITextField *captionTextField;
 
@@ -18,14 +20,52 @@
 
 @implementation CameraViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+
+        UIAlertView *myAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                              message:@"Device has no camera"
+                                                             delegate:nil
+                                                    cancelButtonTitle:@"OK"
+                                                    otherButtonTitles: nil];
+
+        [myAlertView show];
+
+    }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onTakePictureButtonTapped:(id)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (IBAction)onSelectPictureButtonTapped:(id)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+
+    [self presentViewController:picker animated:YES completion:NULL];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = chosenImage;
+
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+
+    //Maybe do segue here into the Upload View Controller/Upload Detail View Controller
+    //Just pass chosenImage in the segue
+
 }
 
 - (void)postPictureButtonPressed {
@@ -52,6 +92,10 @@
 //    UIImage *image = [UIImage imageWithData:imageData];
 //    UIImageView *imageCell = (UIImageView *)[cell viewWithTag:105];
 //    imageCell.image =image;
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+
 }
 
 @end

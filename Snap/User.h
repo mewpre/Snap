@@ -8,10 +8,10 @@
 
 #import <Parse/Parse.h>
 
-@interface User : PFObject<PFSubclassing>
+@interface User : PFUser<PFSubclassing>
 
 //@property (retain) NSString *objectID;
-@property (retain) NSString *username;
+//@property (retain) NSString *username;
 //@property (retain) NSString *password;
 @property (retain) UIImage *profileImage;
 //@property (retain) NSDate *timeStamp;
@@ -23,5 +23,10 @@
 @property (retain) PFRelation *likes;
 
 + (NSString *)parseClassName;
+
++ (void)retrieveRecent48HourPhotosFromUser:(User *)user withCompletion:(void(^)(NSArray *photosArray))Complete;
++ (void)signUpWithUsername:(NSString *)username password:(NSString *)password email:(NSString *)email withCompletion:(void(^)(NSError *error))complete;
++ (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void(^)(NSError *error))complete;
+
 
 @end
