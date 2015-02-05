@@ -9,6 +9,7 @@
 #import "CameraViewController.h"
 #import <Parse/Parse.h>
 #import "Photo.h"
+#import "User.h"
 
 
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -60,38 +61,20 @@
 
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
+    
+    Photo *currentPhoto = [Photo new];
+    [currentPhoto savePhotoWithImage:chosenImage withUser:[User currentUser]];
+    
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 
     //Maybe do segue here into the Upload View Controller/Upload Detail View Controller
     //Just pass chosenImage in the segue
 
 }
 
-- (void)postPictureButtonPressed {
-    Photo *photo;
-    photo.caption = self.captionTextField.text;
-    
-//    photo[@"user"] = currentUser;
-    
-}
 
-- (void)convertImageToPFFile {
-    
-    UIImage *image =///
-    UIImageView *imageView = image;
-    NSData *imageData = UIImagePNGRepresentation(imageView.image);
-    
-    [file saveInBackground];
-    
-    
-    
-    
-//    PFFile *theImage = [object objectForKey:@"image"];
-//    NSData *imageData = [theImage getData];
-//    UIImage *image = [UIImage imageWithData:imageData];
-//    UIImageView *imageCell = (UIImageView *)[cell viewWithTag:105];
-//    imageCell.image =image;
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
