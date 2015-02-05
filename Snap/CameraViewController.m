@@ -15,7 +15,7 @@
 
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
-@property UIImage *chosenImage;
+@property UITextField *captionTextField;
 
 @end
 
@@ -59,9 +59,15 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
-    self.chosenImage = info[UIImagePickerControllerEditedImage];
+    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+    self.imageView.image = chosenImage;
+    
+    Photo *currentPhoto = [Photo new];
+    [currentPhoto savePhotoWithImage:chosenImage withUser:[User currentUser]];
+    
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 
     [self performSegueWithIdentifier:@"uploadDetailSegue" sender:self];
 }
