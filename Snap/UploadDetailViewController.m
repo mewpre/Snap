@@ -22,6 +22,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.imageView.image = self.image;
 }
 
 - (IBAction)onShareButtonTapped:(id)sender
@@ -31,7 +32,12 @@
 - (IBAction)onPostButtonTapped:(id)sender
 {
     Photo *currentPhoto = [Photo new];
-    [currentPhoto savePhotoWithImage:self.imageView.image withUser:[User currentUser]];
+    [currentPhoto savePhotoWithImage:self.image withUser:[User currentUser]];
+}
+
+- (IBAction)onCancelButtonTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

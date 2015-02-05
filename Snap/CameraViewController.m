@@ -82,7 +82,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     UploadDetailViewController *udvc = segue.destinationViewController;
-    udvc.imageView.image = self.chosenImage;
+    udvc.image = self.chosenImage;
 }
 
 
