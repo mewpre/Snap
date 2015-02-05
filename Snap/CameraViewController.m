@@ -7,10 +7,15 @@
 //
 
 #import "CameraViewController.h"
-#import <AVFoundation/AVFoundation.h>
+#import <Parse/Parse.h>
+#import "Photo.h"
+#import "User.h"
+
 
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
+@property UITextField *captionTextField;
 
 @end
 
@@ -56,13 +61,19 @@
 
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.imageView.image = chosenImage;
+    
+    Photo *currentPhoto = [Photo new];
+    [currentPhoto savePhotoWithImage:chosenImage withUser:[User currentUser]];
+    
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
+    
 
     //Maybe do segue here into the Upload View Controller/Upload Detail View Controller
     //Just pass chosenImage in the segue
 
 }
+
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
 
