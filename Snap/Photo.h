@@ -7,6 +7,7 @@
 //
 
 #import <Parse/Parse.h>
+#import "User.h"
 
 @interface Photo : PFObject
 
@@ -24,5 +25,7 @@
 @property (retain) PFRelation *hashtags;
 
 + (NSString *)parseClassName;
+
++ (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete;
 
 @end

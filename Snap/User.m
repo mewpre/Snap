@@ -23,23 +23,34 @@
 @dynamic likes;
 
 
-+ (User *)currentUser
+
+
+
++ (void)retrieveRecent48HourPhotosFromUser:(User *)user withCompletion:(void(^)(NSArray *photosArray))Complete
 {
-    User *currentUser = (User *)[PFUser currentUser];
-    if (currentUser)
-    {
-        // do stuff with the user
-        return currentUser;
-    }
-    else
-    {
-        // show the signup or login screen
-        return nil;
-    }
+    PFRelation *relation = [user relationForKey:@"photos"];
+    [relation.query addAscendingOrder:@"createdAt"];
+
+    // create date 48 hours ago
+    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:-172800];
+    [relation.query whereKey:@"createdAt" greaterThan:date];
+//    [relation.query whereKey:@"user" equalTo:user];
+
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(objects);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
 }
 
 
-+(void)loginWithUsername:(NSString *)username AndPassword:(NSString *)password WithCompletionBlock:(void(^)(NSError *error))complete
++ (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void(^)(NSError *error))complete
 {
     [PFUser logInWithUsernameInBackground:username password:password
                                     block:^(PFUser *user, NSError *error)
@@ -58,7 +69,7 @@
      }];
 }
 
-+ (void)signUpWithUsername:(NSString *)username Password:(NSString *)password AndEmail:(NSString *)email AndCompletion:(void(^)(NSError *error))complete
++ (void)signUpWithUsername:(NSString *)username password:(NSString *)password email:(NSString *)email withCompletion:(void(^)(NSError *error))complete
 {
     // Code to test Parse connection.
     User *user = (User *)[PFUser user];
@@ -81,12 +92,6 @@
         complete(error);
     }];
 }
-
-
-
-
-
-
 
 
 + (void)load

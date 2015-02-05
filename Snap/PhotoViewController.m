@@ -23,59 +23,37 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [User load];
 
-//    Photo *photo = (Photo *)[PFObject objectWithClassName:@"Photo"];
-//    photo.caption = @"My first caption";
-//
-//    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded)
-//        {
-//            // The object has been saved.
-//            NSLog(@"Photo object saved");
-//        }
-//        else
-//        {
-//            // There was a problem, check error.description
-//            NSLog(@"Error");
-//        }
-//    }];
+    User *currentUser = [User currentUser];
+
+    // User sign up
+    [User signUpWithUsername:@"chgiersch" password:@"password" email:@"chgiersch@gmail.com" withCompletion:^(NSError *error)
+     {
+         if (error)
+         {
+             NSLog(@"%@", error);
+         }
+     }];
 
 
+    // Create and save photo to current user
+    Photo *photo = (Photo *)[PFObject objectWithClassName:@"Photo"];
+    photo.caption = @"Photo 1";
+    [Photo savePhoto:photo withUser:currentUser withCompletion:^(NSError *error)
+     {
+
+     }];
 
 
-    
-
-
-
-
-    [PFUser logInWithUsernameInBackground:@"chgiersch" password:@"password"
-                                    block:^(PFUser *user, NSError *error)
-    {
-        if (user)
-        {
-            // Do stuff after successful login.
-            NSLog(@"%@ logged in", user.username);
-
-        }
-        else
-        {
-            // The login failed. Check error to see why.
-            NSLog(@"%@", error);
-        }
-    }];
-
-    // Retrieve user object from parse
-    PFQuery *query = [PFQuery queryWithClassName:@"User"];
-
-    [query getObjectInBackgroundWithId:@"mocCdm36ve" block:^(PFObject *user, NSError *error)
-    {
-        // Do something with the returned PFObject in the gameScore variable.
-        PFUser *retrievedUser = (PFUser *)user;
-        NSLog(@"%@", retrievedUser.username);
-    }];
-
-
+    // Get most recent photos from current user
+    [User retrieveRecent48HourPhotosFromUser:currentUser withCompletion:^(NSArray *photosArray)
+     {
+         Photo *photo1 = photosArray.firstObject;
+         NSLog(@"%@", photo1.caption);
+     }];
 }
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {

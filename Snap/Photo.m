@@ -23,6 +23,31 @@
 @dynamic comments;
 @dynamic hashtags;
 
+
++ (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete
+{
+    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+     {
+         PFRelation *relation = [user relationForKey:@"photos"];
+         // Add to user's photos (photo relation)
+         [relation addObject:photo];
+         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+          {
+              if (error)
+              {
+                  NSLog(@"%@", error);
+              }
+              complete(error);
+          }];
+         if (error)
+         {
+             NSLog(@"%@", error);
+         }
+         complete(error);
+     }];
+}
+
+
 + (void)load
 {
     [self registerSubclass];
