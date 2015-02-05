@@ -16,6 +16,7 @@
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property UITextField *captionTextField;
+@property UIImage *chosenImage;
 
 @end
 
@@ -59,12 +60,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
 
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.imageView.image = chosenImage;
+    self.chosenImage = info[UIImagePickerControllerEditedImage];
     
-    Photo *currentPhoto = [Photo new];
-    [currentPhoto savePhotoWithImage:chosenImage withUser:[User currentUser]];
-    
+//    Photo *currentPhoto = [Photo new];
+//    [currentPhoto savePhotoWithImage:self.chosenImage withUser:[User currentUser]];
+
 
     [picker dismissViewControllerAnimated:YES completion:NULL];
     
