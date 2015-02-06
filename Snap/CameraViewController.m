@@ -58,25 +58,17 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
     self.chosenImage = info[UIImagePickerControllerEditedImage];
-    
-//    Photo *currentPhoto = [Photo new];
-//    [currentPhoto savePhotoWithImage:self.chosenImage withUser:[User currentUser]];
-
-
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
-
     [self performSegueWithIdentifier:@"uploadDetailSegue" sender:self];
 }
 
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     [picker dismissViewControllerAnimated:YES completion:NULL];
-
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
