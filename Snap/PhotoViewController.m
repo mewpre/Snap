@@ -26,7 +26,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    
+    
     //    Create THE USER to save friends to
     self.defaults = [NSUserDefaults standardUserDefaults];
     if (![self.defaults objectForKey:@"SnapUsername"])
@@ -48,6 +49,44 @@
     }
     [self.tableView reloadData];
 }
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 5;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+    
+}
+
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    DynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    return cell;
+    
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    return @"username";
+    //    return [[self.postsArray objectAtIndex:section] objectForKey:@"headertext"];
+    
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
+    UIView *grayLineView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 79.0, 320.0, 1.0)];
+    grayLineView.backgroundColor = [UIColor grayColor];
+    UIImage *image = [UIImage imageNamed:@"Bruce"];
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(16.0, 20.0, 40.0, 40.0)];
+    imageView.image = image;
+    [headerView addSubview:imageView];
+    [headerView addSubview:grayLineView];
+    return headerView;
+}
+
 
 //- (void)populateDatabase
 //{
@@ -118,7 +157,7 @@
 //}
 
 //    User *currentUser = [User currentUser];
-    // User sign up
+// User sign up
 //
 //
 //    // Create and save photo to current user
@@ -140,11 +179,11 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     //    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:[User description] inManagedObjectContext:self.context];
-
+    
     NSString *username = [[alertView textFieldAtIndex:0] text];
-//    NSString *email = [[alertView textFieldAtIndex:1] text];
-//    NSString *password = [[alertView textFieldAtIndex:2] text];
-
+    //    NSString *email = [[alertView textFieldAtIndex:1] text];
+    //    NSString *password = [[alertView textFieldAtIndex:2] text];
+    
     [User signUpWithUsername:username password:@"password" email:@"chgiersch@gmail.com" withCompletion:^(NSError *error)
      {
          if (error)
@@ -152,29 +191,18 @@
              NSLog(@"%@", error);
          }
          self.currentUser = [User currentUser];
-//         [self populateDatabase];
+         //         [self populateDatabase];
      }];
-
+    
     // Save instance of App User (but can also use CurrentUser method)
-//    self.theUser = newUser;
-
+    //    self.theUser = newUser;
+    
     [self.defaults setObject:username forKey:@"SnapUsername"];
     [self.defaults synchronize];
-
+    
     // Load photos onto feed here...
 }
 
 
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    DynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    return cell;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return 0;
-}
 
 @end

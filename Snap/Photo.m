@@ -47,7 +47,7 @@
      }];
 }
 
-- (void)savePhotoWithImage:(UIImage *)image withUser:(User *)user {
+- (void)savePhotoWithImage:(UIImage *)image withUser:(User *)user withCompletion:(void(^)(NSError *error))complete {
     
 //    Photo *currentPhoto = [Photo new];
     NSData *imageData = UIImagePNGRepresentation(image);
