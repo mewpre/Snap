@@ -40,13 +40,19 @@
 }
 
 
-//---------------------------------------------    Present View    ----------------------------------------------
-#pragma mark - Present View
+//---------------------------------------------    Prepare for Segue    ----------------------------------------------
+#pragma mark - PrepareForSegue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+}
+
 - (void)showPhotoViewControllerWithPhotos:(NSArray *)array
 {
     PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
     photoVC.photosArray = array;
-    [self.navigationController pushViewController:photoVC animated:YES];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 
