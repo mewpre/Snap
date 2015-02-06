@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DynamicTableViewCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) IBOutlet UIButton *commentButton;
 
 @end
