@@ -18,7 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSUserDefaults *defaults;
 @property User *currentUser;
-@property NSArray *photoArray;  // To hold 1 or many photos to display for feed or photo view
+//@property NSArray *photoArray;  // To hold 1 or many photos to display for feed or photo view
 
 @end
 
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.photoArray = [NSArray new];
+    self.photosArray = [NSArray new];
     
     [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
         NSLog(@"FUCK");
@@ -66,8 +66,7 @@
 {
     PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
     photoVC.photosArray = array;
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
-    [self presentViewController:navVC animated:YES completion:nil];
+    [self.navigationController pushViewController:photoVC animated:YES];
 }
 
 //---------------------------------------------    Table View    ----------------------------------------------
@@ -138,7 +137,7 @@
 #pragma mark - Show View
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    Photo *photo = self.photoArray[indexPath.row];
+    Photo *photo = self.photosArray[indexPath.row];
     NSArray *array = [[NSArray alloc] initWithObjects:photo, nil];
     [self showPhotoViewControllerWithPhotos:array];
 }
