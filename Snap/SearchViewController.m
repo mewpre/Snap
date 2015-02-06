@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSArray *photosArray;
+@property UIImage *image;
 
 @end
 
@@ -34,6 +35,8 @@
 {
     _photosArray = photosArray;
     [self.collectionView reloadData];
+    //Default to user search since we haven't implemented hashtags
+    self.segmentedControl.selectedSegmentIndex = 1;
 }
 
 
@@ -49,7 +52,7 @@
     PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
     photoVC.photosArray = array;
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
-    [self presentViewController:photoVC animated:YES completion:nil];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 

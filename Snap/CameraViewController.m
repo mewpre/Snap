@@ -13,10 +13,11 @@
 #import "User.h"
 
 
-@interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UploadDelegate>
 
 @property UITextField *captionTextField;
 @property UIImage *chosenImage;
+@property UploadDetailViewController *udvc;
 
 @end
 
@@ -71,10 +72,17 @@
     [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
+-(void)dismissUploadViewController
+{
+    [self.udvc dismissViewControllerAnimated:YES completion:NULL];
+    [self.tabBarController setSelectedIndex:3];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UploadDetailViewController *udvc = segue.destinationViewController;
-    udvc.image = self.chosenImage;
+    self.udvc = segue.destinationViewController;
+    self.udvc.delegate = self;
+    self.udvc.image = self.chosenImage;
 }
 
 

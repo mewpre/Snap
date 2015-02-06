@@ -65,7 +65,7 @@
 + (void)retrieveCommentsFromPhoto:(Photo *)photo withCompletion:(void(^)(NSArray *photosArray))Complete
 {
     PFRelation *relation = [photo relationForKey:@"comments"];
-    [relation.query addAscendingOrder:@"createdAt"];
+    [relation.query addAscendingOrder:@"timeStamp"];
 
     [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
@@ -84,6 +84,15 @@
 {
     NSData *imageData = [self.imageFile getData];
     return [UIImage imageWithData:imageData];
+}
+
+- (void)getUIImageWithCompletion:(void(^)(UIImage *image))Complete
+{
+    [self.imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error)
+     {
+         UIImage *image = [UIImage imageWithData:imageData];
+         Complete(image);
+     }];
 }
 
 + (void)load
