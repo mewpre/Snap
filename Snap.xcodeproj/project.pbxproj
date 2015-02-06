@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2694461A8425C90048FADB /* tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file.txt in Resources */ = {isa = PBXBuildFile; fileRef = 0F2694451A8425C90048FADB /* tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file.txt */; };
 		0FC974661A81FF3900E02C40 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC974651A81FF3900E02C40 /* Comment.m */; };
 		0FC974691A81FF4B00E02C40 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC974681A81FF4B00E02C40 /* Photo.m */; };
 		0FC9746C1A82003200E02C40 /* Hashtag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FC9746B1A82003200E02C40 /* Hashtag.m */; };
@@ -53,6 +54,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F2694451A8425C90048FADB /* tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file.txt"; sourceTree = "<group>"; };
 		0FC974641A81FF3900E02C40 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
 		0FC974651A81FF3900E02C40 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		0FC974671A81FF4B00E02C40 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 		60C5ECB41A818DA6009332BB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0F2694451A8425C90048FADB /* tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file.txt */,
 				60C5ECB51A818DA6009332BB /* Info.plist */,
 				60C5ECB61A818DA6009332BB /* main.m */,
 			);
@@ -369,6 +372,7 @@
 			files = (
 				60C5ECC31A818DA6009332BB /* Main.storyboard in Resources */,
 				60C5ECC81A818DA6009332BB /* LaunchScreen.xib in Resources */,
+				0F2694461A8425C90048FADB /* tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file.txt in Resources */,
 				60C5ECC51A818DA6009332BB /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
