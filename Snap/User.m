@@ -24,8 +24,6 @@
 
 
 
-
-
 + (void)retrieveRecent48HourPhotosFromUser:(User *)user withCompletion:(void(^)(NSArray *photosArray))Complete
 {
     PFRelation *relation = [user relationForKey:@"photos"];
