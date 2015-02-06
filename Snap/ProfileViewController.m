@@ -39,11 +39,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.usernameLabel.text = self.currentUser.username;
-
-    [User retrieveRecent48HourPhotosFromUser:self.currentUser withCompletion:^(NSArray *photosArray)
-     {
-         self.photosArray = photosArray;
-     }];
+    [self getPhotoArrayForSegmentedControl:self.segmentedControl.selectedSegmentIndex];
 }
 
 - (void)setPhotosArray:(NSArray *)photosArray
@@ -65,6 +61,29 @@
     Photo *photo = [self.photosArray objectAtIndex:indexPath.row];
     cell.imageView.image = [photo getUIImage];
     return cell;
+}
+
+- (IBAction)onSegmentedControlChanged:(UISegmentedControl *)sender
+{
+    [self getPhotoArrayForSegmentedControl:[sender selectedSegmentIndex]];
+}
+
+//Helper method for selection
+- (void)getPhotoArrayForSegmentedControl: (NSInteger)selectedIndex
+{
+    if (selectedIndex == 0)
+    {
+        [User retrieveRecent48HourPhotosFromUser:self.currentUser withCompletion:^(NSArray *photosArray)
+         {
+             self.photosArray = photosArray;
+         }];
+    }
+    else
+    {
+        [User retrieveLikedPhotosWithCompletion:^(NSArray *likedPhotosArray) {
+            self.photosArray = likedPhotosArray;
+        }];
+    }
 }
 
 @end

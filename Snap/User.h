@@ -26,6 +26,7 @@
 + (void)retrieveUsersFollowingWithCompletion:(void(^)(NSArray *usersFollowingArray))Complete;
 + (void)retrieveFollowersWithCompletion:(void(^)(NSArray *followersArray))Complete;
 + (void)retrieveRecent48HourPhotosFromUser:(PFUser *)user withCompletion:(void(^)(NSArray *photosArray))Complete;
++ (void)retrieveLikedPhotosWithCompletion:(void(^)(NSArray *likedPhotosArray))Complete;
 + (void)signUpWithUsername:(NSString *)username password:(NSString *)password email:(NSString *)email withCompletion:(void(^)(NSError *error))complete;
 + (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void(^)(NSError *error))complete;
 - (UIImage *)getProfileImage;

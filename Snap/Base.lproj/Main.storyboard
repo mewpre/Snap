@@ -398,6 +398,9 @@
                                     <segment title="posts"/>
                                     <segment title="likes"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onSegmentedControlChanged:" destination="i10-eu-7Pm" eventType="valueChanged" id="sF5-oa-Mvl"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-ll-CpG">
                                 <rect key="frame" x="323" y="45" width="150" height="21"/>

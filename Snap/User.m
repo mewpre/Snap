@@ -57,6 +57,23 @@
      }];
 }
 
++ (void)retrieveLikedPhotosWithCompletion:(void(^)(NSArray *likedPhotosArray))Complete
+{
+    PFRelation *relation = [[PFUser user]relationForKey:@"likes"];
+    [relation.query addDescendingOrder:@"createdAt"];
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *photosArray, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(photosArray);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
+
 + (void)retrieveRecent48HourPhotosFromUser:(PFUser *)user withCompletion:(void(^)(NSArray *photosArray))Complete
 {
     PFRelation *relation = [user relationForKey:@"photos"];
