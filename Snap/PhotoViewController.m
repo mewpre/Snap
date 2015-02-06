@@ -18,6 +18,7 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property NSUserDefaults *defaults;
 @property User *currentUser;
+@property NSArray *photoArray;  // To hold 1 or many photos to display for feed or photo view
 
 @end
 
@@ -26,8 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+    self.photoArray = [NSArray new];
+
     //    Create THE USER to save friends to
     self.defaults = [NSUserDefaults standardUserDefaults];
     if (![self.defaults objectForKey:@"SnapUsername"])
@@ -45,9 +46,12 @@
         [User loginWithUsername:username andPassword:@"password" withCompletionBlock:^(NSError *error) {
             NSLog(@"Logged in as: %@", username);
             self.currentUser = [User currentUser];
+
+            // Call loadPhotosInFeed method here...
+
         }];
+//        [self populateDatabase];
     }
-    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -91,70 +95,123 @@
 //- (void)populateDatabase
 //{
 //    // Create 4 users
+//----------------------------------------------    Alert View (Login)    ----------------------------------------------
+#pragma mark - Alert View (Login)
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    //    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:[User description] inManagedObjectContext:self.context];
+
+    NSString *username = [[alertView textFieldAtIndex:0] text];
+    //    NSString *email = [[alertView textFieldAtIndex:1] text];
+    //    NSString *password = [[alertView textFieldAtIndex:2] text];
+
+    [User signUpWithUsername:username password:@"password" email:@"chgiersch@gmail.com" withCompletion:^(NSError *error)
+     {
+         if (error)
+         {
+             NSLog(@"%@", error);
+         }
+         self.currentUser = [User currentUser];
+         [self.defaults setObject:username forKey:@"SnapUsername"];
+         [self.defaults synchronize];
+         NSLog(@"Signed up as: %@", username);
+
+         //         [self populateDatabase];
+
+         // Call loadPhotosInFeed method here...
+     }];
+}
+
+
+
+//-------------------------------------------    Populate Database    ----------------------------------------------
+#pragma mark - Populate Database
+- (void)populateDatabase
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"tfss-16e3e245-6624-46a3-ab5a-d80d4f8797b9-file" ofType:@"txt"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    NSData *imageData = [NSData dataWithContentsOfURL:url];
+//    PFFile *file = [PFFile fileWithData:imageData];
+    UIImage *image = [UIImage imageWithData:imageData];
+
+    // Create 4 users
+    [User logOut];
 //    [User signUpWithUsername:@"bestMomEver" password:@"password" email:@"mom@gmail.com" withCompletion:^(NSError *error) {
-//        Photo *momPhoto = [Photo new];
-//        momPhoto.caption = @"Mom's first photo!";
-//        [Photo savePhoto:momPhoto withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:momPhoto forKey:@"photos"];
-//        [momPhoto saveInBackground];
+//        User *momUser = [User currentUser];
+//        [User loginWithUsername:momUser.username andPassword:@"password" withCompletionBlock:^(NSError *error) {
+//            Photo *momPhoto = [Photo new];
+////            momPhoto.imageFile = file;
+//            [momPhoto savePhotoWithImage:image caption:@"Mom's first photo!" withUser:momUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:momPhoto forKey:@"photos"];
+////                [momPhoto saveInBackground];
+//            }];
 //
-//        Photo *momPhoto2 = [Photo new];
-//        momPhoto.caption = @"My favorite child...my daughter!";
-//        [Photo savePhoto:momPhoto2 withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:momPhoto2 forKey:@"photos"];
-//        [momPhoto2 saveInBackground];
+//            Photo *momPhoto2 = [Photo new];
+////            momPhoto.imageFile = file;
+//            [momPhoto2 savePhotoWithImage:image caption:@"My favorite child...my daughter!" withUser:momUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:momPhoto2 forKey:@"photos"];
+////                [momPhoto2 saveInBackground];
+//                [User logOut];
+//            }];
+//        }];
 //    }];
-//
-//
+
 //    [User signUpWithUsername:@"quietTypeDad" password:@"password" email:@"dad@gmail.com" withCompletion:^(NSError *error) {
-//        Photo *dadPhoto = [Photo new];
-//        dadPhoto.caption = @"I'm the father, I like photos of my kids!";
-//        [Photo savePhoto:dadPhoto withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:dadPhoto forKey:@"photos"];
-//        [dadPhoto saveInBackground];
+//        User *dadUser = [User currentUser];
+//        [User loginWithUsername:dadUser.username andPassword:@"password" withCompletionBlock:^(NSError *error) {
+//            Photo *dadPhoto = [Photo new];
+////            dadPhoto.imageFile = file;
+//            [dadPhoto savePhotoWithImage:image caption:@"I love golf. GOLF, GOLF, GOLF!!" withUser:dadUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:dadPhoto forKey:@"photos"];
+////                [dadPhoto saveInBackground];
+//            }];
 //
-//        Photo *dadPhoto2 = [Photo new];
-//        dadPhoto2.caption = @"I love golf! GOLF, GOLF, GOLF!!!";
-//        [Photo savePhoto:dadPhoto2 withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:dadPhoto2 forKey:@"photos"];
-//        [dadPhoto2 saveInBackground];
+//            Photo *dadPhoto2 = [Photo new];
+//            //            dadPhoto2.imageFile = file;
+//            [dadPhoto2 savePhotoWithImage:image caption:@"I love pictures of my kids" withUser:dadUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:dadPhoto2 forKey:@"photos"];
+////                [dadPhoto2 saveInBackground];
+//                [User logOut];
+//            }];
+//        }];
 //    }];
-//
 //
 //    [User signUpWithUsername:@"crazySister" password:@"password" email:@"sis@gmail.com" withCompletion:^(NSError *error) {
-//        Photo *sisPhoto = [Photo new];
-//        sisPhoto.caption = @"My little brother is SO annoying!";
-//        [Photo savePhoto:sisPhoto withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:sisPhoto forKey:@"photos"];
-//        [sisPhoto saveInBackground];
+//        User *sisUser = [User currentUser];
+//        [User loginWithUsername:sisUser.username andPassword:@"password" withCompletionBlock:^(NSError *error) {
+//            Photo *sisPhoto = [Photo new];
+//            [sisPhoto savePhotoWithImage:image caption:@"My little brother is SO annoying!" withUser:sisUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:sisPhoto forKey:@"photos"];
+////                [sisPhoto saveInBackground];
+//            }];
 //
-//        Photo *sisPhoto2 = [Photo new];
-//        sisPhoto2.caption = @"Me and my BFF. We're so hot!";
-//        [Photo savePhoto:sisPhoto2 withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:sisPhoto2 forKey:@"photos"];
-//        [sisPhoto2 saveInBackground];
+//            Photo *sisPhoto2 = [Photo new];
+//            [sisPhoto2 savePhotoWithImage:image caption:@"Me and my BFF. We're so hot!" withUser:sisUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:sisPhoto2 forKey:@"photos"];
+////                [sisPhoto2 saveInBackground];
+//                [User logOut];
+//            }];
+//        }];
 //    }];
-//
 //
 //    [User signUpWithUsername:@"stupidLittleBrother" password:@"password" email:@"bro@gmail.com" withCompletion:^(NSError *error) {
-//        Photo *broPhoto = [Photo new];
-//        broPhoto.caption = @"Video games!";
-//        [Photo savePhoto:broPhoto withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:broPhoto forKey:@"photos"];
-//        [broPhoto saveInBackground];
+//        User *broUser = [PFUser currentUser];
+//        [User loginWithUsername:broUser.username andPassword:@"password" withCompletionBlock:^(NSError *error) {
+//            Photo *broPhoto = [Photo new];
+//            [broPhoto savePhotoWithImage:image caption:@"Video games!" withUser:broUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:broPhoto forKey:@"photos"];
+////                [broPhoto saveInBackground];
+//            }];
 //
-//        Photo *broPhoto2 = [Photo new];
-//        broPhoto2.caption = @"I had over 100 headshots last night in CoD";
-//        [Photo savePhoto:broPhoto2 withUser:[User currentUser] withCompletion:nil];
-//        [[User currentUser] addObject:broPhoto2 forKey:@"photos"];
-//        [broPhoto2 saveInBackground];
+//            Photo *broPhoto2 = [Photo new];
+//            [broPhoto2 savePhotoWithImage:image caption:@"I had over 100 headshots last night in CoD" withUser:broUser withCompletion:^(NSError *error) {
+////                [currentUser addObject:broPhoto2 forKey:@"photos"];
+////                [broPhoto2 saveInBackground];
+//                [User logOut];
+//            }];
+//        }];
 //    }];
-//
-//    // Create 2 pictures for each user and save
-//
-//    // Add respective 2 pair of photos to each users PHOTO relation
-//
-//}
+}
 
 //    User *currentUser = [User currentUser];
 // User sign up
@@ -176,32 +233,32 @@
 //         NSLog(@"%@", photo1.caption);
 //     }];
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    //    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:[User description] inManagedObjectContext:self.context];
-    
-    NSString *username = [[alertView textFieldAtIndex:0] text];
-    //    NSString *email = [[alertView textFieldAtIndex:1] text];
-    //    NSString *password = [[alertView textFieldAtIndex:2] text];
-    
-    [User signUpWithUsername:username password:@"password" email:@"chgiersch@gmail.com" withCompletion:^(NSError *error)
-     {
-         if (error)
-         {
-             NSLog(@"%@", error);
-         }
-         self.currentUser = [User currentUser];
-         //         [self populateDatabase];
-     }];
-    
-    // Save instance of App User (but can also use CurrentUser method)
-    //    self.theUser = newUser;
-    
-    [self.defaults setObject:username forKey:@"SnapUsername"];
-    [self.defaults synchronize];
-    
-    // Load photos onto feed here...
-}
+//- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+//{
+//    //    User *newUser = [NSEntityDescription insertNewObjectForEntityForName:[User description] inManagedObjectContext:self.context];
+//    
+//    NSString *username = [[alertView textFieldAtIndex:0] text];
+//    //    NSString *email = [[alertView textFieldAtIndex:1] text];
+//    //    NSString *password = [[alertView textFieldAtIndex:2] text];
+//    
+//    [User signUpWithUsername:username password:@"password" email:@"chgiersch@gmail.com" withCompletion:^(NSError *error)
+//     {
+//         if (error)
+//         {
+//             NSLog(@"%@", error);
+//         }
+//         self.currentUser = [User currentUser];
+//         //         [self populateDatabase];
+//     }];
+//    
+//    // Save instance of App User (but can also use CurrentUser method)
+//    //    self.theUser = newUser;
+//    
+//    [self.defaults setObject:username forKey:@"SnapUsername"];
+//    [self.defaults synchronize];
+//    
+//    // Load photos onto feed here...
+//}
 
 
 

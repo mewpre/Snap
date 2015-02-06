@@ -23,10 +23,58 @@
 @dynamic likes;
 
 
++ (void)retrieveUsersFollowingWithCompletion:(void(^)(NSArray *usersFollowingArray))Complete
+{
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"followers"];
+    [relation.query addAscendingOrder:@"username"];
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *usersFollowing, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(usersFollowing);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
 
++ (void)retrieveFollowersWithCompletion:(void(^)(NSArray *followersArray))Complete
+{
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"followers"];
+    [relation.query addAscendingOrder:@"username"];
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *followers, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(followers);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
 
++ (void)retrieveLikedPhotosWithCompletion:(void(^)(NSArray *likedPhotosArray))Complete
+{
+    PFRelation *relation = [[PFUser user]relationForKey:@"likes"];
+    [relation.query addDescendingOrder:@"createdAt"];
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *photosArray, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(photosArray);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
 
-+ (void)retrieveRecent48HourPhotosFromUser:(User *)user withCompletion:(void(^)(NSArray *photosArray))Complete
++ (void)retrieveRecent48HourPhotosFromUser:(PFUser *)user withCompletion:(void(^)(NSArray *photosArray))Complete
 {
     PFRelation *relation = [user relationForKey:@"photos"];
     [relation.query addAscendingOrder:@"createdAt"];
@@ -104,6 +152,10 @@
     return @"User";
 }
 
-
+- (UIImage *)getProfileImage
+{
+    NSData *imageData = [self.profileImage getData];
+    return [UIImage imageWithData:imageData];
+}
 
 @end

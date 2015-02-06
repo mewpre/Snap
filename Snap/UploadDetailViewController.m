@@ -7,31 +7,50 @@
 //
 
 #import "UploadDetailViewController.h"
+#import "Photo.h"
 
-@interface UploadDetailViewController ()
+@interface UploadDetailViewController () <UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *captionTextField;
+@property (strong, nonatomic) IBOutlet UITextField *tagUsersTextField;
+
 
 @end
 
 @implementation UploadDetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.imageView.image = self.image;
+    self.captionTextField.clearsOnBeginEditing = YES;
+    self.tagUsersTextField.clearsOnBeginEditing = YES;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)onShareButtonTapped:(id)sender
+{
+    NSArray *activityItems = @[self.image, self.captionTextField.text];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[]];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard];
+    [self presentViewController:activityVC animated:TRUE completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onPostButtonTapped:(id)sender
+{
+    Photo *currentPhoto = [Photo new];
+    [currentPhoto savePhotoWithImage:self.image caption:self.captionTextField.text withUser:[User currentUser] withCompletion:nil];
+    [self.delegate dismissUploadViewController];
 }
-*/
+
+- (IBAction)onCancelButtonTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
+}
 
 @end

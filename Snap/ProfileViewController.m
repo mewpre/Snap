@@ -8,6 +8,8 @@
 
 #import "ProfileViewController.h"
 #import "ImageCollectionViewCell.h"
+#import "Photo.h"
+#import "User.h"
 
 @interface ProfileViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -20,38 +22,70 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
+@property (strong, nonatomic) NSArray *photosArray;
+@property User *currentUser;
+
 @end
 
 @implementation ProfileViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.currentUser = [User currentUser];
+//    self.profileImageView.image = [self.currentUser getProfileImage];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.usernameLabel.text = self.currentUser.username;
+    self.segmentedControl.selectedSegmentIndex = 0;
+    [self getPhotoArrayForSegmentedControl:self.segmentedControl.selectedSegmentIndex];
+}
+
+- (void)setPhotosArray:(NSArray *)photosArray
+{
+    _photosArray = photosArray;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - Collection View Delegates
 
--(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 0;
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return self.photosArray.count;
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
+    Photo *photo = [self.photosArray objectAtIndex:indexPath.row];
+    cell.imageView.image = [photo getUIImage];
     return cell;
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)onSegmentedControlChanged:(UISegmentedControl *)sender
+{
+    [self getPhotoArrayForSegmentedControl:[sender selectedSegmentIndex]];
 }
-*/
+
+//Helper method for selection
+- (void)getPhotoArrayForSegmentedControl: (NSInteger)selectedIndex
+{
+    if (selectedIndex == 0)
+    {
+        [User retrieveRecent48HourPhotosFromUser:self.currentUser withCompletion:^(NSArray *photosArray)
+         {
+             self.photosArray = photosArray;
+         }];
+    }
+    else
+    {
+        [User retrieveLikedPhotosWithCompletion:^(NSArray *likedPhotosArray)
+        {
+            self.photosArray = likedPhotosArray;
+        }];
+    }
+}
 
 @end

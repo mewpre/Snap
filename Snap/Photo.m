@@ -24,26 +24,59 @@
 @dynamic hashtags;
 
 
-- (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete
+//+ (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete
+//{
+//    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+//     {
+//         PFRelation *relation = [user relationForKey:@"photos"];
+//         // Add to user's photos (photo relation)
+//         [relation addObject:photo];
+//         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+//          {
+//              if (error)
+//              {
+//                  NSLog(@"%@", error);
+//              }
+//              complete(error);
+//          }];
+//         if (error)
+//         {
+//             NSLog(@"%@", error);
+//         }
+//         complete(error);
+//     }];
+//}
+
+- (void)savePhotoWithImage:(UIImage *)image caption:(NSString *)caption withUser:(User *)user withCompletion:(void(^)(NSError *error))complete
 {
-    [photo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
+    NSData *imageData = UIImagePNGRepresentation(image);
+    PFFile *file = [PFFile fileWithData:imageData];
+    self.imageFile = file;
+    self.caption = caption;
+    [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+
+//        Photo *photo = self;
+        PFRelation *relation = [[PFUser currentUser] relationForKey:@"photos"];
+        [relation addObject:self];
+        [[PFUser currentUser] saveEventually];
+    }];
+}
+
++ (void)retrieveCommentsFromPhoto:(Photo *)photo withCompletion:(void(^)(NSArray *photosArray))Complete
+{
+    PFRelation *relation = [photo relationForKey:@"comments"];
+    [relation.query addAscendingOrder:@"timeStamp"];
+
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
      {
-         PFRelation *relation = [user relationForKey:@"photos"];
-         // Add to user's photos (photo relation)
-         [relation addObject:photo];
-         [user saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error)
-          {
-              if (error)
-              {
-                  NSLog(@"%@", error);
-              }
-              complete(error);
-          }];
-         if (error)
+         if (!error)
+         {
+             Complete(objects);
+         }
+         else
          {
              NSLog(@"%@", error);
          }
-         complete(error);
      }];
 }
 
@@ -56,10 +89,20 @@
     [self saveInBackground];
     [user addObject:self forKey:@"photos"];
     [user saveInBackground];
-
-//    [User.currentUser savePhotoWithData:mageData];
+//- (UIImage *)getUIImage
+//{
+//    NSData *imageData = [self.imageFile getData];
+//    return [UIImage imageWithData:imageData];
 }
 
+- (void)getUIImageWithCompletion:(void(^)(UIImage *image))Complete
+{
+    [self.imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error)
+     {
+         UIImage *image = [UIImage imageWithData:imageData];
+         Complete(image);
+     }];
+}
 
 + (void)load
 {
