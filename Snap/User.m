@@ -152,27 +152,28 @@
     }];
 }
 
-- (void)retrieveMostRecentPhotos:(void(^)(NSArray *photosArray))complete
-{
-    PFQuery *query = [self.usersFollowing query];
-    
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"did this %@", objects);
-    }];
-    
-    PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
-    [photosQuery whereKey:@"user" matchesKey:@"username" inQuery:query];
-    
-    [photosQuery addDescendingOrder:@"createdAt"];
-    
-    [photosQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        
-        
-        complete(objects);
-    }];
-    
-    
-}
+//+ (void)retrieveMostRecentPhotos:(void(^)(NSArray *photosArray))complete;
+//{
+//    PFRelation *relation = [[PFUser currentUser] relationForKey:@"usersFollowing"];
+//    
+//    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        NSLog(@"did this %@", objects);
+//        complete(objects);
+//    }];
+//    
+////    PFQuery *photosQuery = [PFQuery queryWithClassName:@"Photo"];
+////    [photosQuery whereKey:@"user" matchesKey:@"username" inQuery:query];
+////    
+////    [photosQuery addDescendingOrder:@"createdAt"];
+////    
+////    [photosQuery findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+////        
+////
+////        complete(objects);
+////    }];
+//
+//    
+//}
 
 
 + (void)load

@@ -29,7 +29,7 @@
     [super viewDidLoad];
     self.photoArray = [NSArray new];
     
-    [[User currentUser]retrieveMostRecentPhotos:^(NSArray *photosArray) {
+    [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
         NSLog(@"FUCK");
     }];
 
@@ -57,22 +57,29 @@
             }];
         }];
 //        [self populateDatabase];
-
     }
 }
 
-#pragma mark - Table view data source
+//---------------------------------------------    Show View    ----------------------------------------------
+#pragma mark - Show View
+- (void)showPhotoViewControllerWithPhotos:(NSArray *)array
+{
+    PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
+    photoVC.photosArray = array;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
+    [self presentViewController:navVC animated:YES completion:nil];
+}
 
+//---------------------------------------------    Table View    ----------------------------------------------
+#pragma mark - Table View
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 5;
 }
-
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
     
 }
-
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
@@ -99,9 +106,6 @@
 }
 
 
-//- (void)populateDatabase
-//{
-//    // Create 4 users
 //----------------------------------------------    Alert View (Login)    ----------------------------------------------
 #pragma mark - Alert View (Login)
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
@@ -130,7 +134,8 @@
 }
 
 
-
+//---------------------------------------------    Show View    ----------------------------------------------
+#pragma mark - Show View
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Photo *photo = self.photoArray[indexPath.row];

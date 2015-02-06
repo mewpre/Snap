@@ -89,20 +89,14 @@
     [self saveInBackground];
     [user addObject:self forKey:@"photos"];
     [user saveInBackground];
-//- (UIImage *)getUIImage
-//{
-//    NSData *imageData = [self.imageFile getData];
-//    return [UIImage imageWithData:imageData];
 }
 
-- (void)getUIImageWithCompletion:(void(^)(UIImage *image))Complete
+- (UIImage *)getUIImage
 {
-    [self.imageFile getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error)
-     {
-         UIImage *image = [UIImage imageWithData:imageData];
-         Complete(image);
-     }];
+    NSData *imageData = [self.imageFile getData];
+    return [UIImage imageWithData:imageData];
 }
+
 
 - (void)getUIImageWithCompletion:(void(^)(UIImage *image))Complete
 {

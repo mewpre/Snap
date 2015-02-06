@@ -33,9 +33,7 @@
                                                              delegate:nil
                                                     cancelButtonTitle:@"OK"
                                                     otherButtonTitles: nil];
-
         [myAlertView show];
-
     }
 }
 

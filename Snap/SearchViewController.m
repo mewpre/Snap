@@ -40,13 +40,8 @@
 }
 
 
-//---------------------------------------------    Prepare for Segue    ----------------------------------------------
-#pragma mark - PrepareForSegue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-
-}
-
+//---------------------------------------------    Show View    ----------------------------------------------
+#pragma mark - Show View
 - (void)showPhotoViewControllerWithPhotos:(NSArray *)array
 {
     PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
