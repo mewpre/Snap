@@ -13,7 +13,7 @@
 //@property (retain) NSString *objectID;
 //@property (retain) NSString *username;
 //@property (retain) NSString *password;
-@property (retain) UIImage *profileImage;
+@property (retain) PFFile *profileImage;
 //@property (retain) NSDate *timeStamp;
 
 @property (retain) PFRelation *followers;
@@ -27,6 +27,6 @@
 + (void)retrieveRecent48HourPhotosFromUser:(User *)user withCompletion:(void(^)(NSArray *photosArray))Complete;
 + (void)signUpWithUsername:(NSString *)username password:(NSString *)password email:(NSString *)email withCompletion:(void(^)(NSError *error))complete;
 + (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void(^)(NSError *error))complete;
-
+- (UIImage *)getProfileImage;
 
 @end

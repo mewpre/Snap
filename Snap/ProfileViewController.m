@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 #import "ImageCollectionViewCell.h"
 #import "Photo.h"
+#import "User.h"
 
 @interface ProfileViewController ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -22,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong, nonatomic) NSArray *photosArray;
+@property User *currentUser;
 
 @end
 
@@ -30,7 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.currentUser = [User currentUser];
+//    self.profileImageView.image = [self.currentUser getProfileImage];
+    self.usernameLabel.text = self.currentUser.username;
+    
+    [User retrieveRecent48HourPhotosFromUser:self.currentUser withCompletion:^(NSArray *photosArray)
+     {
+         self.photosArray = photosArray;
+     }];
+
+
 }
 
 #pragma mark - Collection View Delegates

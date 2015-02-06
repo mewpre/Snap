@@ -22,11 +22,7 @@
 @dynamic comments;
 @dynamic likes;
 
-
-
-
-
-+ (void)retrieveRecent48HourPhotosFromUser:(User *)user withCompletion:(void(^)(NSArray *photosArray))Complete
++ (void)retrieveRecent48HourPhotosFromUser:(PFUser *)user withCompletion:(void(^)(NSArray *photosArray))Complete
 {
     PFRelation *relation = [user relationForKey:@"photos"];
     [relation.query addAscendingOrder:@"createdAt"];
@@ -102,6 +98,12 @@
 + (NSString *)parseClassName
 {
     return @"User";
+}
+
+- (UIImage *)getProfileImage
+{
+    NSData *imageData = [self.profileImage getData];
+    return [UIImage imageWithData:imageData];
 }
 
 @end

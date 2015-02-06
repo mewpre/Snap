@@ -36,7 +36,11 @@
 - (IBAction)onPostButtonTapped:(id)sender
 {
     Photo *currentPhoto = [Photo new];
-    [currentPhoto savePhotoWithImage:self.image withUser:[User currentUser]];
+    NSData *imageData = UIImagePNGRepresentation(self.image);
+    PFFile *file = [PFFile fileWithData:imageData];
+    currentPhoto.imageFile = file;
+    currentPhoto.caption = self.captionTextField.text;
+    [currentPhoto savePhoto:currentPhoto withUser:[User currentUser] withCompletion:nil];
 }
 
 - (IBAction)onCancelButtonTapped:(id)sender

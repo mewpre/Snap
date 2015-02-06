@@ -62,9 +62,11 @@
     }
     else
     {
-        PFQuery *query = [PFQuery queryWithClassName:@"User"];
-        [query whereKey:@"name" containsString:searchBar.text];
-        User *user = (User*)[query getFirstObject];
+        PFQuery *query = [PFUser query];
+        [query whereKey:@"username" containsString:searchBar.text];
+        NSArray *users = [query findObjects];
+        PFUser *user = [users firstObject];
+        //        User *user = (User*)[query getFirstObject];
         if (user)
         {
             [User retrieveRecent48HourPhotosFromUser:user withCompletion:^(NSArray *photosArray)
