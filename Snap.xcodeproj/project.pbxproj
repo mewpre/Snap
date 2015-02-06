@@ -36,7 +36,6 @@
 		60C5ECFA1A8193FF009332BB /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECF91A8193FF009332BB /* SearchViewController.m */; };
 		60C5ECFE1A819431009332BB /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ECFD1A819431009332BB /* CameraViewController.m */; };
 		60C5ED011A819443009332BB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED001A819443009332BB /* ProfileViewController.m */; };
-		60C5ED041A819455009332BB /* UploadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED031A819455009332BB /* UploadViewController.m */; };
 		60C5ED071A819466009332BB /* UploadDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED061A819466009332BB /* UploadDetailViewController.m */; };
 		60C5ED0C1A819A1A009332BB /* DynamicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED0B1A819A1A009332BB /* DynamicTableViewCell.m */; };
 		60C5ED0F1A81B410009332BB /* ImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 60C5ED0E1A81B410009332BB /* ImageCollectionViewCell.m */; };
@@ -96,8 +95,6 @@
 		60C5ECFD1A819431009332BB /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 		60C5ECFF1A819443009332BB /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		60C5ED001A819443009332BB /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
-		60C5ED021A819455009332BB /* UploadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadViewController.h; sourceTree = "<group>"; };
-		60C5ED031A819455009332BB /* UploadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadViewController.m; sourceTree = "<group>"; };
 		60C5ED051A819466009332BB /* UploadDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadDetailViewController.h; sourceTree = "<group>"; };
 		60C5ED061A819466009332BB /* UploadDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadDetailViewController.m; sourceTree = "<group>"; };
 		60C5ED0A1A819A1A009332BB /* DynamicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DynamicTableViewCell.h; sourceTree = "<group>"; };
@@ -247,8 +244,6 @@
 				60C5ECFD1A819431009332BB /* CameraViewController.m */,
 				60C5ECFF1A819443009332BB /* ProfileViewController.h */,
 				60C5ED001A819443009332BB /* ProfileViewController.m */,
-				60C5ED021A819455009332BB /* UploadViewController.h */,
-				60C5ED031A819455009332BB /* UploadViewController.m */,
 				60C5ED051A819466009332BB /* UploadDetailViewController.h */,
 				60C5ED061A819466009332BB /* UploadDetailViewController.m */,
 			);
@@ -339,9 +334,11 @@
 				TargetAttributes = {
 					60C5ECB01A818DA5009332BB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PXJ4T2K4N5;
 					};
 					60C5ECCC1A818DA6009332BB = {
 						CreatedOnToolsVersion = 6.1.1;
+						DevelopmentTeam = PXJ4T2K4N5;
 						TestTargetID = 60C5ECB01A818DA5009332BB;
 					};
 				};
@@ -402,7 +399,6 @@
 				0FFF6CFF1A81A9F100B02AC5 /* User.m in Sources */,
 				60C5ED011A819443009332BB /* ProfileViewController.m in Sources */,
 				0FC974661A81FF3900E02C40 /* Comment.m in Sources */,
-				60C5ED041A819455009332BB /* UploadViewController.m in Sources */,
 				60C5ED0F1A81B410009332BB /* ImageCollectionViewCell.m in Sources */,
 				60C5ECC01A818DA6009332BB /* PhotoViewController.m in Sources */,
 				60C5ECB71A818DA6009332BB /* main.m in Sources */,
@@ -555,6 +551,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -566,6 +564,7 @@
 				INFOPLIST_FILE = SnapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snap.app/Snap";
 			};
 			name = Debug;
@@ -574,6 +573,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -581,6 +582,7 @@
 				INFOPLIST_FILE = SnapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snap.app/Snap";
 			};
 			name = Release;

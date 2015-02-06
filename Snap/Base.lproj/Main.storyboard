@@ -118,24 +118,6 @@
             </objects>
             <point key="canvasLocation" x="866" y="-474"/>
         </scene>
-        <!--Upload View Controller-->
-        <scene sceneID="9nF-C3-MRW">
-            <objects>
-                <viewController id="H1j-dt-doq" customClass="UploadViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="aLw-QR-4lt"/>
-                        <viewControllerLayoutGuide type="bottom" id="rrm-UX-vbE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fnO-OH-hnX">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dGs-hZ-UCA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1609" y="216"/>
-        </scene>
         <!--Upload Detail View Controller-->
         <scene sceneID="hC3-5M-uzN">
             <objects>
@@ -147,12 +129,59 @@
                     <view key="view" contentMode="scaleToFill" id="kS8-6z-wRN">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="caption" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-0e-e3T">
+                                <rect key="frame" x="192" y="294" width="216" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghy-sy-l8W">
+                                <rect key="frame" x="287" y="434" width="40" height="30"/>
+                                <state key="normal" title="Share">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onShareButtonTapped:" destination="o3T-Nr-LSb" eventType="touchUpInside" id="chI-rD-4ec"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wf-bA-Ok9">
+                                <rect key="frame" x="261" y="472" width="93" height="30"/>
+                                <state key="normal" title="Post on Snap">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onPostButtonTapped:" destination="o3T-Nr-LSb" eventType="touchUpInside" id="paP-Qf-8zl"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tag users" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FV6-fh-H4y">
+                                <rect key="frame" x="192" y="346" width="216" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjX-NE-4se">
+                                <rect key="frame" x="24" y="20" width="48" height="30"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCancelButtonTapped:" destination="o3T-Nr-LSb" eventType="touchUpInside" id="N0W-Ld-NSD"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-hW-DgJ">
+                                <rect key="frame" x="182" y="20" width="250" height="250"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="captionTextField" destination="gvN-0e-e3T" id="Ki0-5o-Jfn"/>
+                        <outlet property="imageView" destination="vSg-hW-DgJ" id="uA5-yQ-8TQ"/>
+                        <outlet property="tagUsersTextField" destination="FV6-fh-H4y" id="jP8-mY-ghq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ME-q4-xZ1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2323" y="216"/>
+            <point key="canvasLocation" x="1571" y="216"/>
         </scene>
         <!--Camera-->
         <scene sceneID="Nw3-gA-Ruh">
@@ -166,20 +195,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocr-EU-Vy6">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="378"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KV-QQ-JHu">
-                                <rect key="frame" x="252" y="462" width="96" height="30"/>
-                                <state key="normal" title="Select Picture">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onSelectPictureButtonTapped:" destination="gft-1H-Zf1" eventType="touchUpInside" id="fIo-4K-uWL"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAg-mm-Ca6">
-                                <rect key="frame" x="258" y="406" width="84" height="30"/>
+                                <rect key="frame" x="258" y="169" width="84" height="30"/>
                                 <state key="normal" title="Take Picture">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -187,12 +204,21 @@
                                     <action selector="onTakePictureButtonTapped:" destination="gft-1H-Zf1" eventType="touchUpInside" id="k7a-gE-RbY"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3KV-QQ-JHu">
+                                <rect key="frame" x="252" y="264" width="96" height="30"/>
+                                <state key="normal" title="Select Picture">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onSelectPictureButtonTapped:" destination="gft-1H-Zf1" eventType="touchUpInside" id="fIo-4K-uWL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Camera" id="GBF-uV-JEc"/>
                     <connections>
-                        <outlet property="imageView" destination="ocr-EU-Vy6" id="XDn-dT-LeG"/>
+                        <segue destination="o3T-Nr-LSb" kind="presentation" identifier="uploadDetailSegue" id="it8-jP-ZPa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hrD-eo-XRM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,7 +265,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="cac-wk-jMg">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="cac-wk-jMg" customClass="ImageCollectionViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -253,7 +279,7 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <connections>
-                                            <outlet property="imageView" destination="fxz-Yf-0bL" id="onD-ER-yQM"/>
+                                            <outlet property="imageView" destination="fxz-Yf-0bL" id="al1-cf-OlM"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>

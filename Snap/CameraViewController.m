@@ -7,15 +7,16 @@
 //
 
 #import "CameraViewController.h"
+#import "UploadDetailViewController.h"
 #import <Parse/Parse.h>
 #import "Photo.h"
 #import "User.h"
 
 
 @interface CameraViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 @property UITextField *captionTextField;
+@property UIImage *chosenImage;
 
 @end
 
@@ -57,28 +58,24 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-
-    UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
-    self.imageView.image = chosenImage;
-    
-    Photo *currentPhoto = [Photo new];
-    [currentPhoto savePhotoWithImage:chosenImage withUser:[User currentUser]];
-    
-
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    self.chosenImage = info[UIImagePickerControllerEditedImage];
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
-
-    //Maybe do segue here into the Upload View Controller/Upload Detail View Controller
-    //Just pass chosenImage in the segue
-
+    [self performSegueWithIdentifier:@"uploadDetailSegue" sender:self];
 }
 
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
     [picker dismissViewControllerAnimated:YES completion:NULL];
-
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    UploadDetailViewController *udvc = segue.destinationViewController;
+    udvc.image = self.chosenImage;
+}
+
 
 @end
