@@ -27,8 +27,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.photosArray = [NSArray new];
-    
+//    self.photosArray = [NSArray new];
+
     [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
         NSLog(@"FUCK");
     }];
@@ -65,9 +65,11 @@
 //            }];
 
             // Call loadPhotosInFeed method here... (and in Alert view)
-//            [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
-//                NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
-//            }];
+            [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
+                NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
+                self.photosArray = photosArray;
+                [self.tableView reloadData];
+            }];
         }];
 //        [self populateDatabase];
     }
@@ -85,7 +87,7 @@
 //---------------------------------------------    Table View    ----------------------------------------------
 #pragma mark - Table View
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 5;
+    return self.photosArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -96,6 +98,8 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
     //get image from query
+    Photo *photo = self.photosArray[indexPath.row];
+    cell.imageView.image = [photo getUIImage];
     return cell;
     
 }
@@ -110,6 +114,8 @@
     UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
     UIView *grayLineView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 79.0, 320.0, 1.0)];
     grayLineView.backgroundColor = [UIColor grayColor];
+
+    // Set image here
     UIImage *image = [UIImage imageNamed:@"Bruce"];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(16.0, 20.0, 40.0, 40.0)];
     imageView.image = image;

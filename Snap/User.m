@@ -24,13 +24,28 @@
 
 + (void)retrieveMostRecentPhotos:(void(^)(NSArray *photosArray))complete
 {
+    NSMutableArray *mutArray = [NSMutableArray new];
     PFRelation *relation = [[PFUser currentUser] relationForKey:@"usersFollowing"];
+
+    [relation.query includeKey:@"photos"];
 
     [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (error) {
             NSLog(@"%@", error);
         }
         NSLog(@"did this %@", objects);
+
+        for (PFUser *user in objects)
+        {
+//            PFRelation *photoRelation = [user relationForKey:@"photos"];
+//            [relation.query]
+            PFRelation *photoRelation = [user relationForKey:@"photos"];
+            [photoRelation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                [mutArray addObjectsFromArray:objects];
+                complete(mutArray);
+            }];
+        }
+
     }];
 }
 
