@@ -95,6 +95,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DynamicTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    //get image from query
     return cell;
     
 }
