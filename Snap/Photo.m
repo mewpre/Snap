@@ -71,12 +71,4 @@
     return @"Photo";
 }
 
-+ (NSArray *)retrievePhotosOfUser:(NSString *)searchTerm
-{
-    PFQuery *query = [PFQuery queryWithClassName:@"Photo"];
-    [query whereKey:@"user" containsString:searchTerm];
-    [query orderByDescending:@"createdAt"];
-    return [query findObjects];
-}
-
 @end
