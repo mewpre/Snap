@@ -7,6 +7,7 @@
 //
 
 #import "SearchViewController.h"
+#import "PhotoViewController.h"
 #import "ImageCollectionViewCell.h"
 #import <Parse/Parse.h>
 #import "User.h"
@@ -29,17 +30,31 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void)setPhotosArray:(NSArray *)photosArray
 {
     _photosArray = photosArray;
     [self.collectionView reloadData];
 }
 
+
+//---------------------------------------------    Prepare for Segue    ----------------------------------------------
+#pragma mark - PrepareForSegue
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+}
+
+- (void)showPhotoViewControllerWithPhotos:(NSArray *)array
+{
+    PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
+    photoVC.photosArray = array;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
+    [self presentViewController:photoVC animated:YES completion:nil];
+}
+
+
+//----------------------------------------------    Collection View    ----------------------------------------------
+#pragma mark - Collection View
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
@@ -53,7 +68,16 @@
     return self.photosArray.count;
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    Photo *photo = self.photosArray[indexPath.row];
+    NSArray *array = [[NSArray alloc] initWithObjects:photo, nil];
+    [self showPhotoViewControllerWithPhotos:array];
+}
 
+
+//------------------------------------------------    Search Bar    ----------------------------------------------
+#pragma mark - Search Bar
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     if (self.segmentedControl.selectedSegmentIndex == 0)

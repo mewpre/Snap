@@ -10,5 +10,7 @@
 
 @interface PhotoViewController : UIViewController
 
+@property NSArray *photosArray;
+
 @end
 
