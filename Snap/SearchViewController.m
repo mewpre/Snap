@@ -44,8 +44,7 @@
 {
     ImageCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Cell" forIndexPath:indexPath];
     Photo *photo = [self.photosArray objectAtIndex:indexPath.row];
-    NSData *imageData = [photo.imageFile getData];
-    cell.imageView.image = [UIImage imageWithData:imageData];
+    cell.imageView.image = [photo getUIImage];
     return cell;
 }
 

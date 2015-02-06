@@ -60,6 +60,11 @@
 //    [User.currentUser savePhotoWithData:mageData];
 }
 
+- (UIImage *)getUIImage
+{
+    NSData *imageData = [self.imageFile getData];
+    return [UIImage imageWithData:imageData];
+}
 
 + (void)load
 {

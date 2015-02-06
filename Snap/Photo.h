@@ -28,5 +28,6 @@
 
 - (void)savePhoto:(Photo *)photo withUser:(User *)user withCompletion:(void(^)(NSError *error))complete;
 - (void)savePhotoWithImage:(UIImage *)image withUser:(User *)user;
+- (UIImage *)getUIImage;
 
 @end
