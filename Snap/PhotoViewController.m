@@ -51,10 +51,23 @@
             NSLog(@"Logged in as: %@", username);
             self.currentUser = [User currentUser];
 
+//             // Add to usersFollowing relation of current user
+//            PFRelation *relation = [[PFUser currentUser] relationForKey:@"usersFollowing"];
+//            PFUser *aUser = [PFUser objectWithoutDataWithObjectId:@"ouABGYJhjI"];
+//            [relation addObject:aUser];
+//            [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                NSLog(@"Save relation complete");
+//                if (error)
+//                {
+//                    NSLog(@"%@", error);
+//                }
+//
+//            }];
+
             // Call loadPhotosInFeed method here... (and in Alert view)
-            [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
-                NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
-            }];
+//            [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
+//                NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
+//            }];
         }];
 //        [self populateDatabase];
     }
