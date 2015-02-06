@@ -27,6 +27,10 @@
 
 - (IBAction)onShareButtonTapped:(id)sender
 {
+    NSArray *activityItems = @[self.image, self.captionTextField.text];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[]];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint];
+    [self presentViewController:activityVC animated:TRUE completion:nil];
 }
 
 - (IBAction)onPostButtonTapped:(id)sender
