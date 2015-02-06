@@ -34,8 +34,12 @@
     [super viewDidLoad];
     self.currentUser = [User currentUser];
 //    self.profileImageView.image = [self.currentUser getProfileImage];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
     self.usernameLabel.text = self.currentUser.username;
-    
+
     [User retrieveRecent48HourPhotosFromUser:self.currentUser withCompletion:^(NSArray *photosArray)
      {
          self.photosArray = photosArray;
