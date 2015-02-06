@@ -30,5 +30,7 @@
 + (void)signUpWithUsername:(NSString *)username password:(NSString *)password email:(NSString *)email withCompletion:(void(^)(NSError *error))complete;
 + (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void(^)(NSError *error))complete;
 - (UIImage *)getProfileImage;
+- (void)retrieveMostRecentPhotos:(void(^)(NSArray *photosArray))complete;
+
 
 @end
