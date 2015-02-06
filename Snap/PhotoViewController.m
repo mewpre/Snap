@@ -28,6 +28,10 @@
 {
     [super viewDidLoad];
     self.photoArray = [NSArray new];
+    
+    [[User currentUser]retrieveMostRecentPhotos:^(NSArray *photosArray) {
+        NSLog(@"FUCK");
+    }];
 
     //    Create THE USER to save friends to
     self.defaults = [NSUserDefaults standardUserDefaults];
