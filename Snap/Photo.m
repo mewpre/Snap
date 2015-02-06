@@ -62,6 +62,24 @@
     }];
 }
 
++ (void)retrieveCommentsFromPhoto:(Photo *)photo withCompletion:(void(^)(NSArray *photosArray))Complete
+{
+    PFRelation *relation = [photo relationForKey:@"comments"];
+    [relation.query addAscendingOrder:@"createdAt"];
+
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(objects);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
+
 - (UIImage *)getUIImage
 {
     NSData *imageData = [self.imageFile getData];

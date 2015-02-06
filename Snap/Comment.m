@@ -7,6 +7,8 @@
 //
 
 #import "Comment.h"
+#import "Photo.h"
+#import "User.h"
 
 @implementation Comment
 
@@ -28,5 +30,19 @@
 {
     return @"Comment";
 }
+
+- (void)saveCommentWithText:(NSString *)commentText forPhoto:(Photo *)photo withCompletion:(void(^)(NSError *error))complete
+{
+    self.text = commentText;
+    [self saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        PFRelation *photoRelation = [photo relationForKey:@"comments"];
+        [photoRelation addObject:self];
+        PFRelation *userRelation = [[PFUser currentUser] relationForKey:@"comments"];
+        [userRelation addObject:self];
+        [photo saveEventually];
+    }];
+}
+
+
 
 @end
