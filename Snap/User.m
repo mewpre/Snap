@@ -23,6 +23,39 @@
 @dynamic likes;
 
 
++ (void)retrieveUsersFollowingWithCompletion:(void(^)(NSArray *usersFollowingArray))Complete
+{
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"followers"];
+    [relation.query addAscendingOrder:@"username"];
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *usersFollowing, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(usersFollowing);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
+
++ (void)retrieveFollowersWithCompletion:(void(^)(NSArray *followersArray))Complete
+{
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"followers"];
+    [relation.query addAscendingOrder:@"username"];
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *followers, NSError *error)
+     {
+         if (!error)
+         {
+             Complete(followers);
+         }
+         else
+         {
+             NSLog(@"%@", error);
+         }
+     }];
+}
 
 + (void)retrieveRecent48HourPhotosFromUser:(PFUser *)user withCompletion:(void(^)(NSArray *photosArray))Complete
 {
