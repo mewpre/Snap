@@ -40,8 +40,12 @@
      {
          self.photosArray = photosArray;
      }];
+}
 
-
+- (void)setPhotosArray:(NSArray *)photosArray
+{
+    _photosArray = photosArray;
+    [self.collectionView reloadData];
 }
 
 #pragma mark - Collection View Delegates

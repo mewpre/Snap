@@ -96,6 +96,7 @@
             [User retrieveRecent48HourPhotosFromUser:user withCompletion:^(NSArray *photosArray)
              {
                  self.photosArray = photosArray;
+                 [searchBar resignFirstResponder];
              }];
         }
     }

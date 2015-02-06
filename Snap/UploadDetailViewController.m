@@ -9,7 +9,7 @@
 #import "UploadDetailViewController.h"
 #import "Photo.h"
 
-@interface UploadDetailViewController ()
+@interface UploadDetailViewController () <UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UITextField *captionTextField;
 @property (strong, nonatomic) IBOutlet UITextField *tagUsersTextField;
@@ -23,6 +23,8 @@
 {
     [super viewDidLoad];
     self.imageView.image = self.image;
+    self.captionTextField.clearsOnBeginEditing = YES;
+    self.tagUsersTextField.clearsOnBeginEditing = YES;
 }
 
 - (IBAction)onShareButtonTapped:(id)sender
@@ -36,16 +38,19 @@
 - (IBAction)onPostButtonTapped:(id)sender
 {
     Photo *currentPhoto = [Photo new];
-    NSData *imageData = UIImagePNGRepresentation(self.image);
-    PFFile *file = [PFFile fileWithData:imageData];
-    currentPhoto.imageFile = file;
-    currentPhoto.caption = self.captionTextField.text;
-    [currentPhoto savePhoto:currentPhoto withUser:[User currentUser] withCompletion:nil];
+    [currentPhoto savePhotoWithImage:self.image caption:self.captionTextField.text withUser:[User currentUser] withCompletion:nil];
+    [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
 - (IBAction)onCancelButtonTapped:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end

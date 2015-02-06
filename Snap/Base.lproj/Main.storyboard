@@ -156,16 +156,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="caption" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-0e-e3T">
-                                <rect key="frame" x="192" y="295" width="216" height="30"/>
+                                <rect key="frame" x="192" y="195" width="216" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="216" id="1n9-r2-Uir"/>
                                     <constraint firstAttribute="height" constant="30" id="Fv4-Rg-hjB"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o3T-Nr-LSb" id="mOo-EV-WG6"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ghy-sy-l8W">
-                                <rect key="frame" x="280" y="405" width="40" height="30"/>
+                                <rect key="frame" x="280" y="305" width="40" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="QGC-HN-Gm8"/>
                                     <constraint firstAttribute="width" constant="40" id="TwA-Qb-ueo"/>
@@ -178,7 +181,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wf-bA-Ok9">
-                                <rect key="frame" x="254" y="460" width="93" height="30"/>
+                                <rect key="frame" x="254" y="360" width="93" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="boi-uM-Wzu"/>
                                     <constraint firstAttribute="width" constant="93" id="w6c-dz-lME"/>
@@ -191,19 +194,22 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tag users" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FV6-fh-H4y">
-                                <rect key="frame" x="192" y="350" width="216" height="30"/>
+                                <rect key="frame" x="192" y="250" width="216" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="Kfk-1R-umj"/>
                                     <constraint firstAttribute="width" constant="216" id="nX8-dv-xkT"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="o3T-Nr-LSb" id="8Ph-zX-Pcu"/>
+                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vSg-hW-DgJ">
-                                <rect key="frame" x="175" y="20" width="250" height="250"/>
+                                <rect key="frame" x="225" y="20" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="250" id="JQk-oI-mlM"/>
-                                    <constraint firstAttribute="height" constant="250" id="Xv7-c8-zRE"/>
+                                    <constraint firstAttribute="width" constant="150" id="JQk-oI-mlM"/>
+                                    <constraint firstAttribute="height" constant="150" id="Xv7-c8-zRE"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BjX-NE-4se">
