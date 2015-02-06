@@ -22,6 +22,17 @@
 @dynamic comments;
 @dynamic likes;
 
++ (void)retrieveMostRecentPhotos:(void(^)(NSArray *photosArray))complete
+{
+    PFRelation *relation = [[PFUser currentUser] relationForKey:@"usersFollowing"];
+
+    [relation.query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (error) {
+            NSLog(@"%@", error);
+        }
+        NSLog(@"did this %@", objects);
+    }];
+}
 
 + (void)retrieveUsersFollowingWithCompletion:(void(^)(NSArray *usersFollowingArray))Complete
 {

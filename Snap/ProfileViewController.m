@@ -39,6 +39,7 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     self.usernameLabel.text = self.currentUser.username;
+    self.segmentedControl.selectedSegmentIndex = 0;
     [self getPhotoArrayForSegmentedControl:self.segmentedControl.selectedSegmentIndex];
 }
 
@@ -80,7 +81,8 @@
     }
     else
     {
-        [User retrieveLikedPhotosWithCompletion:^(NSArray *likedPhotosArray) {
+        [User retrieveLikedPhotosWithCompletion:^(NSArray *likedPhotosArray)
+        {
             self.photosArray = likedPhotosArray;
         }];
     }

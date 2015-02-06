@@ -31,7 +31,7 @@
 {
     NSArray *activityItems = @[self.image, self.captionTextField.text];
     UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:activityItems applicationActivities:@[]];
-    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint];
+    activityVC.excludedActivityTypes = @[UIActivityTypeAssignToContact, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll, UIActivityTypeCopyToPasteboard];
     [self presentViewController:activityVC animated:TRUE completion:nil];
 }
 
@@ -39,7 +39,7 @@
 {
     Photo *currentPhoto = [Photo new];
     [currentPhoto savePhotoWithImage:self.image caption:self.captionTextField.text withUser:[User currentUser] withCompletion:nil];
-    [self dismissViewControllerAnimated:YES completion:NULL];
+    [self.delegate dismissUploadViewController];
 }
 
 - (IBAction)onCancelButtonTapped:(id)sender

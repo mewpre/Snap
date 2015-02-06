@@ -31,4 +31,6 @@
 + (void)loginWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionBlock:(void(^)(NSError *error))complete;
 - (UIImage *)getProfileImage;
 
++ (void)retrieveMostRecentPhotos:(void(^)(NSArray *photosArray))complete;
+
 @end

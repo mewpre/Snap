@@ -19,6 +19,7 @@
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) NSArray *photosArray;
+@property UIImage *image;
 
 @end
 
@@ -34,22 +35,18 @@
 {
     _photosArray = photosArray;
     [self.collectionView reloadData];
+    //Default to user search since we haven't implemented hashtags
+    self.segmentedControl.selectedSegmentIndex = 1;
 }
 
 
-//---------------------------------------------    Prepare for Segue    ----------------------------------------------
-#pragma mark - PrepareForSegue
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-
-}
-
+//---------------------------------------------    Present View    ----------------------------------------------
+#pragma mark - Present View
 - (void)showPhotoViewControllerWithPhotos:(NSArray *)array
 {
     PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
     photoVC.photosArray = array;
-//    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
-    [self presentViewController:photoVC animated:YES completion:nil];
+    [self.navigationController pushViewController:photoVC animated:YES];
 }
 
 

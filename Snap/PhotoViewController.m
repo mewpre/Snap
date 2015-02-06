@@ -47,11 +47,23 @@
             NSLog(@"Logged in as: %@", username);
             self.currentUser = [User currentUser];
 
-            // Call loadPhotosInFeed method here...
-
+            // Call loadPhotosInFeed method here... (and in Alert view)
+            [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
+                NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
+            }];
         }];
 //        [self populateDatabase];
+
     }
+}
+
+//---------------------------------------------    Present View    ----------------------------------------------
+#pragma mark - Present View
+- (void)showPhotoViewControllerWithPhotos:(NSArray *)array
+{
+    PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
+    photoVC.photosArray = array;
+    [self.navigationController pushViewController:photoVC animated:YES];
 }
 
 //----------------------------------------------    Alert View (Login)    ----------------------------------------------
@@ -92,6 +104,13 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.photoArray.count;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Photo *photo = self.photoArray[indexPath.row];
+    NSArray *array = [[NSArray alloc] initWithObjects:photo, nil];
+    [self showPhotoViewControllerWithPhotos:array];
 }
 
 //-------------------------------------------    Populate Database    ----------------------------------------------

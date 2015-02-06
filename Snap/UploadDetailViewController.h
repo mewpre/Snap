@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol UploadDelegate <NSObject>
+
+- (void)dismissUploadViewController;
+
+@end
+
 @interface UploadDetailViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property UIImage *image;
+
+@property (nonatomic, weak) id<UploadDelegate> delegate;
 
 @end
