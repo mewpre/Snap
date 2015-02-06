@@ -48,7 +48,7 @@
 {
     PhotoViewController *photoVC = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([PhotoViewController class])];
     photoVC.photosArray = array;
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
+//    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:photoVC];
     [self presentViewController:photoVC animated:YES completion:nil];
 }
 
