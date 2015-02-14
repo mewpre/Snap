@@ -12,5 +12,6 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UIButton *likeButton;
 @property (strong, nonatomic) IBOutlet UIButton *commentButton;
+@property (strong, nonatomic) IBOutlet UILabel *captionLabel;
 
 @end

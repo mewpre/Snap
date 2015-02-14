@@ -65,11 +65,14 @@
 //            }];
 
             // Call loadPhotosInFeed method here... (and in Alert view)
-            [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
-                NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
-                self.photosArray = photosArray;
-                [self.tableView reloadData];
-            }];
+            if (!self.photosArray)
+            {
+                [User retrieveMostRecentPhotos:^(NSArray *photosArray) {
+                    NSLog(@"Number of photos retrieved: %lu", (unsigned long)photosArray.count);
+                    self.photosArray = photosArray;
+                    [self.tableView reloadData];
+                }];
+            }
         }];
 //        [self populateDatabase];
     }
@@ -100,6 +103,7 @@
     //get image from query
     Photo *photo = self.photosArray[indexPath.row];
     cell.imageView.image = [photo getUIImage];
+    cell.captionLabel.text = photo.caption;
     return cell;
     
 }
@@ -111,8 +115,8 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 320.0, 80.0)];
-    UIView *grayLineView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 79.0, 320.0, 1.0)];
+    UIView *headerView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 0.0, 350.0, 80.0)];
+    UIView *grayLineView = [[UIView alloc]initWithFrame:CGRectMake(0.0, 79.0, 350.0, 1.0)];
     grayLineView.backgroundColor = [UIColor grayColor];
 
     // Set image here
